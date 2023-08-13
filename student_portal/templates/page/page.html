@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% comment %} <div class="section">
+	<h4>{{ page.title }}</h4>
+	<div class="divider"></div>
+</div>
+
+<div class="row">
+  <div class="col s12">
+    {{ page.content | safe }}
+  </div> {% endcomment %}
+
+  <div class="col s12">
+    <ul class="collection with-header">
+      <li class="collection-header"><h4>PDF viewer</h4></li>
+      {% for file in page.files.all %}
+        
+          <li class="collection-item">
+            <div>{{ file.get_file_name }}</div>
+            <div class="pdf-viewer-container">
+              <iframe class="pdf-viewer"  width = "100%"      height="500px" src="{% static 'js/pdfjs/web/viewer.html' %}?file={{ file.file.url }}"></iframe>
+            </div>
+          </li>
+        
+          <li class="collection-item">
+            <div>{{ file.get_file_name }}</div>
+            <a class="secondary-content" href="{{ file.file.url }}" download>
+              <i class="material-icons">download</i>
+            </a>
+          </li>
+        
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
+
+  {% comment %} <a class="btn-large" href="{% url 'mark-page-as-done' course_id module_id page.id %}"><i class="material-icons">done</i>Mark as done</a>
+</div>
+{% endif %} {% endcomment %}
+
+
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pdfviewer</title>
+    <link rel="stylesheet" href="{% static 'blog/css/tag/pdfview.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.10/dist/css/bootstrap-select.min.css">
+		{% comment %} <link href="{% static 'blog/css/common-css/bootstrap.css' %}" rel="stylesheet"> 
+        <link href="{% static 'blog/css/common-css/swiper.css' %}" rel="stylesheet">
+		<link href="{% static 'blog/css/common-css/ionicons.css' %}" rel="stylesheet">
+		<link href="{% static 'blog/css/bona/styles.css' %}" rel="stylesheet">
+		<link href="{% static 'blog/css/bona/responsive.css' %}" rel="stylesheet">
+	
+		
+		
+	  
+		{% comment %} <link rel="stylesheet" href="{% static 'account/css/main.css' %}"> 
+	
+		<link rel="stylesheet" href="{% static 'dashboard/author/css/prism.css' %}">
+		
+		<link rel="stylesheet" href="{% static 'dashboard/author/css/bootstrap-tagsinput.css' %}">
+		<link rel="stylesheet" href="{% static 'dashboard/author/css/dashboard.css' %}">
+		<link rel="stylesheet" href="{% static 'dashboard/author/css/dashboard-article.css' %}">
+	</head>
+
+<body>
+    <div class="major">
+        <div class="div1">
+            <nav>
+                <img src="{% static 'blog/images/tag/logo.png' %}" alt="" class="logo">
+                <ul>
+                    <li><a href="dashbord.html" id="a"><i class="fa-solid fa-table-columns"> </i>
+                            <p>Dashboard</p>
+                        </a></li>
+                    <li><a href="universities-pastquestions.html" id="b"><i class="fa-solid fa-book-open-reader"></i>
+                            <p> Past Questions</p>
+                        </a></li>
+                    <li><a href="notepage.html" id="c"><i class="fa-solid fa-book"></i>
+                            <p> Notes</p>
+                        </a></li>
+                    <li><a href="livestream.html" id="c"><i class="fa fa-podcast" aria-hidden="true"></i>
+                            <p>Livestream</p>
+                        </a></li>
+                    <li><a href="notification.html" id="d"><i class="fa-solid fa-bell"></i>
+                            <p>Notification</p>
+                        </a></li>
+                    <li><a href="{% url 'inbox' %}" id="e"><i class="fa-solid fa-comments"> </i>
+                            <p>Chat</p>
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="div2">
+            <p
+                style=" padding: 10px;border: 1px solid black; width:500px; text-align:center; border-radius: 10px; position: absolute; top: 50px; font-weight: bold; left: 300px;">
+                
+                {{ module.title }}</p>
+            <a href="profile.html"> <img src="{% static 'blog/images/tag/bitmoji.jpeg'%}" alt="" srcset="" id="bit"></a>
+            <div class="per">
+                <a href="#">
+                    <p>Percy <i class="fa-solid fa-chevron-down"></i></p>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="{% url 'blog:author_profile_details' %}">Profile</a></li>
+                    <li><a href="{% url 'blog:author_profile_update' %}" id="sch">Schedule Livestream</a></li>
+                    <li><a href="{% url 'index' %}">Test Yourself</a></li>
+                    <li><a href="{% url 'logout'%}">Logout!</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="div3">
+            <div class="main-post">
+                <div class="quest">
+                   
+
+					<figure class="main-post">
+				
+					<figure class="post-image"><img class="article-image" src="{{ chair.image.url }}" alt="Blog Image">
+						{% if chair.image_credit %}
+							<figcaption class="mt-2 text-center image-caption">
+							 (Image Credit: {{ chair.image_credit}})
+						 </figcaption>
+						{% endif %}
+						 </figure>
+ 
+						 <div class="post-bottom-area">
+                            
+                            <div class="para">
+                                {% if object.file %}
+                                {% if object.extension == '.jpg' or object.extension == 'jpeg' or object.extension == 'png' %}
+                                <a href="{{ object.file.url }}" download>
+                                  <img src="{{ object.file.url }}" alt="" class="article-image">
+                                </a>
+                                <a href="{{ object.file.url }}" download class="text-dark">
+                                  <h5>{{ object.file }}</h5>
+                                </a>
+                                {% elif object.extension == '.pdf' %}
+                                <div id="pdf-viewer" class="para"></div>
+                                <script src="{% static 'js/pdfjs/build/pdf.js' %}"></script>
+                                <script>
+                                  var pdfUrl = "{{ file.file.url }}";
+                                  var pdfViewerContainer = document.getElementById("pdf-viewer");
+                                  var pdfViewer = document.createElement("iframe");
+                                  pdfViewer.src = "{% static 'js/pdfjs/web/viewer.html' %}?file=" + encodeURIComponent(pdfUrl);
+                                  pdfViewer.width = "100%";
+                                  pdfViewer.height = "600";
+                                  pdfViewerContainer.appendChild(pdfViewer);
+                                </script>
+                                {% elif object.extension == '.mp4' %}
+                                <div class="embed-responsive embed-responsive-16by9">
+                                  <video id="video-1_html_api" class="vjs-tech" preload="auto" autoplay>
+                                    <source src="{{ object.file.url }}" type="video/mp4" class="embed-responsive">
+                                  </video>
+                                </div>
+                                <a href="{{ object.file.url }}" download class="text-dark">
+                                  <h5>{{ object.file }}</h5>
+                                </a>
+                                {% else %}
+                                <a href="{{ object.file.url }}" download class="text-dark">
+                                  <h5>{{ object.file }}</h5>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                              </div>
+                              <h2>{{ object.title }}</h2>
+                              <p class="article-content">{{ object.content }}</p>
+
+						 <!-- chair body -->
+							 <p class="para">{{ file.file.url | safe }}</p>
+ 
+						 <!-- tags -->
+							 {% comment %} <ul class="tags">
+								 {% for tag in chair.tags.all %}
+								 <li><a href="{% url 'blog:tag_articles' tag_name=tag.name %}">{{ tag.name }}</a></li>
+								 {% endfor %}
+							 </ul> 
+ 
+						 </div><!-- post-bottom-area -->
+					 </figure>				
+				
+
+                </div>
+                <div class="options">
+					<span>
+					</span>
+					{% comment %} <a href="#" style="color: white; background-color:#4d4e4e ;"> previous</a>
+                    <a href="#" style="color: white; background-color: dodgerblue;">next</a> 
+                </div>
+            </div>
+          
+        </div>
+        <div class="div4">
+            <div style="display:flex ;justify-content:space-around; margin-top: 10px; font-size: 15px;">
+                {% comment %} <a  href="
+				{% url 'blog:chair_detail' username=chair.author.username|lower slug=chair.slug %}"
+                    style="background:#a80f27 ; color: white; border-radius: 10px;padding: 5px; position: relative; bottom: 5px;">Questions</a> {% endcomment %}
+                {% comment %} <a href="{% url 'blog:chair_comments' chair.slug %}" >Comment</a> 
+                <a href="pdfviewresources.html">Resources</a>
+            </div>
+            <div class="div">
+                <ul>
+                    <li>
+
+                        <img src="bitmoji.jpeg" alt="">
+                        <p class="name">Babalola Peters</p>
+                        <p class="question">Please, how was the answer derived </p>
+                        <a href="#"> Reply<i class="fa-solid fa-chevron-down"></i></a>
+                        <p class="time">3days ago</p>
+                    </li>
+                    <li>
+                        <img src="bitmoji.jpeg" alt="">
+                        <p class="name">Tobi Alex</p>
+                        <p class="question">Please, how was the answer derived </p>
+                        <a href="#"> Reply<i class="fa-solid fa-chevron-down"></i></a>
+                        <p class="time">3days ago</p>
+
+                    </li>
+                    <li>
+                        <img src="bitmoji.jpeg" alt="">
+                        <p class="name">Ajayi Peters</p>
+                        <p class="question">Please, how was the answer derived </p>
+                        <a href="#"> Reply<i class="fa-solid fa-chevron-down"></i></a>
+                        <p class="time">3days ago</p>
+                    </li>
+                    <li>
+
+                        <img src="bitmoji.jpeg" alt="">
+                        <p class="name">Babalola Peters</p>
+                        <p class="question">Please, how was the answer derived </p>
+                        <a href="#"> Reply<i class="fa-solid fa-chevron-down"></i></a>
+                        <p class="time">3days ago</p>
+                    </li>
+                    <li>
+                        <img src="bitmoji.jpeg" alt="">
+                        <p class="name">Tobi Alex</p>
+                        <p class="question">Please, how was the answer derived </p>
+                        <a href="#"> Reply<i class="fa-solid fa-chevron-down"></i></a>
+                        <p class="time">3days ago</p>
+
+                    </li>
+                    <li>
+                        <img src="bitmoji.jpeg" alt="">
+                        <p class="name">Ajayi Peters</p>
+                        <p class="question">Please, how was the answer derived </p>
+                        <a href="#"> Reply<i class="fa-solid fa-chevron-down"></i></a>
+                        <p class="time">3days ago</p>
+                    </li>
+                </ul>
+                <a href="#"> <input type="text" name="" placeholder="Type your message..."></a>
+            </div>
+        </div>
+</body>
+
+</html>  {% endcomment %}

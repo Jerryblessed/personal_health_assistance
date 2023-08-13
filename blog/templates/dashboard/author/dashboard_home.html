@@ -1,0 +1,130 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+<div class="div3">
+    <ul>
+        <div>
+            <i class="fa-solid fa-download"></i>
+            <li>
+                 {% for chair in chairs %}
+                <div class="col">
+                  <div class="card">
+                      <img class="card-img-top" src="{{ chair.file }}">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ chairs.title }}</h5>
+                        <a href="{% url 'course' chair.id %}">Resume</a>
+                    </div>
+                  </div>
+                </div>
+                  {% endfor %}
+                </li>
+            <p>Completed quizzes</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-floppy-disk"></i>
+            <li>0</li>
+            <p>Saved PQs</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-clipboard-list"></i>
+            <li>0</li>
+            <p>Livestream attended</p>
+        </div>
+        <div>
+            <i class="fa-solid fa-eye"></i>
+            <li>0</li>
+            <p>Viewed PQs</p>
+        </div>
+    </ul>
+</div>
+<div class="div4">
+    <p>Activity Report</p>
+    <select name="" id="">
+        <option value="">Jan-Feb</option>
+        <option value="">Feb-Mar</option>
+        <option value="">Mar-Apr</option>
+        <option value="">Apr-May</option>
+        <option value="">May-Jun</option>
+        <option value="">Jun-Jul</option>
+        <option value="">Jul-Aug</option>
+        <option value="">Aug-Sept</option>
+        <option value="">Sept-Oct</option>
+        <option value="">Oct-Nov</option>
+        <option value="">Nov-Dec</option>
+    </select>
+    <ul>
+        <li>100</li>
+        <li>90</li>
+        <li>80</li>
+        <li>70</li>
+        <li>60</li>
+        <li>50</li>
+        <li>40</li>
+        <li>30</li>
+        <li>20</li>
+        <li>10</li>
+    </ul>
+    <div class="chart">
+        <!-- <ul>
+            <li>70%</li>
+            <li>40%</li>
+            <li>70%</li>
+            <li>40%</li>
+            <li>57%</li>
+            <li>60%</li>
+            <li>80%</li>
+            <li>60%</li>
+        </ul> -->
+    </div>
+    <div class="grade">
+        <ul>
+            <li>1st</li>
+            <li>2nd</li>
+            <li>3rd</li>
+            <li>4th</li>
+            <li>5th</li>
+            <li>6th</li>
+            <li>7th</li>
+            <li>8th</li>
+        </ul>
+    </div>
+</div>
+<div class="div5">
+    <div class="box">
+        <p>Leader Board</p>
+        <p id="task">View the full List</p>
+        <p>27th</p>
+        <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+            class="fa-solid fa-star"></i> <i class="fa-solid fa-star-half-stroke"></i>
+    </div>
+    <div class="eds">
+        <div id="eds">
+            <p>EDS 321</p>
+            <P id="edss">+20%<i class="fa-solid fa-arrow-up"></i></P>
+        </div>
+        <ul>
+            <div>
+                <i class="fa-solid fa-download"></i>
+                <li>0</li>
+                <p>Completed quizzes</p>
+            </div>
+            <div>
+                <i class="fa-solid fa-circle-down"></i>
+                <li>0</li>
+                <p>Yet to Complete</p>
+            </div>
+        </ul>
+        <div class="sign">
+            <i class="fa-solid fa-chevron-left"></i> <i class="fa-solid fa-circle"></i><i
+                class="fa-solid fa-circle"></i> <i class="fa-solid fa-circle"></i><i
+                class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

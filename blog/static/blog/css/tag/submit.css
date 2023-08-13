@@ -1,0 +1,191 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+    background: white;
+    height: 70vh;
+}
+.logo{
+    cursor: pointer;
+    height: 300px;
+    position: relative;
+    bottom: 90px;
+}
+/* second div */
+.div2{
+    padding: 0;
+    /* border: 2px solid blue; */
+    position: relative;
+    bottom: 340px;
+}
+.per{
+    padding: 5px ;
+    border: 2px solid black;
+    position: relative;
+    width: 1in;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 12.5in;
+    font-size: 20px;
+    text-decoration: none; 
+}
+#bit{
+    position: relative;
+    left: 11.5in;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(132, 134, 134);
+    right: 10px;
+    top: 50px;
+}
+.dropdown li{
+    display: grid;
+    position: relative;  
+    justify-content:left;
+    padding-left:10px; 
+    padding-top: 25px;  
+    font-size: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    cursor:  pointer;
+}
+.dropdown li:hover{
+    background: #f0b363;
+    color: black;
+    transition: .4s;
+}
+.dropdown a:hover{
+    color: black;
+}
+.per a{
+    text-decoration: none;
+    color:black;
+}
+.dropdown a{
+    text-decoration: none;
+    color: white;
+}
+.per .dropdown{
+    background: #c77200;
+    position: absolute;
+    z-index: 999;
+    display:none;
+    right: 5px;
+    top:35px;
+    border-radius: 10px;
+    height: 1.7in;
+    width: 1.3in;
+    justify-content: space-evenly;
+    
+}
+.per:hover ul.dropdown{
+    display: block;
+    color: rgb(153, 151, 151);
+    transition: .4s;
+}
+#sch{
+    font-size: 10px;
+}
+/* div3 */
+.div3{
+    width: 900px;
+    position:absolute;
+    bottom: 100px;
+    left: 200px;
+}
+.div3 .questions{
+    position: absolute;
+    bottom: 100px;
+}
+.div3 .questions input {
+    width: 20px;
+    margin-bottom: 20px;
+}
+.div3 .questions p{
+    position: relative;
+    bottom: 35px;
+    left: 50px;
+}
+.div3 .options{
+    display: flex;
+    justify-content: space-between;
+    width: 3in;
+    position: relative;
+    left: 130px;
+}
+.div3 .options a{
+    padding: 10px;
+    background-color:#d98518;
+    color: white;
+    border-radius: 10px;
+    font-size: 13px;
+    width: 1in;
+    text-align: center;
+}
+
+/* div4 */
+.div4{
+    height: 100vh;
+    width: 350px;
+    background-color:#d98518;
+    position: absolute;
+    left:1016px;
+    bottom:0px;
+    border-bottom-left-radius: 50px;
+}
+.div4 .circle{
+    height: 180px;
+    width:180px;
+    border: 15px solid #a80f27;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: 70px;
+}
+.div4 .circle p{
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+.div4 table{
+    width: 2.5in;
+    height: 3in;
+    position: absolute;
+    top: 350px;
+    color: white;
+    font-size:10px;
+}
+.div4 table tr td a{
+    justify-content: space-between;
+    padding: 10px;
+    padding-top: 55px;
+    font-weight: bold;
+    /* width: 10px; */
+}
+.div4 h3{
+    position: relative;
+    top:320px;
+    left: 90px;
+    width: max-content;
+}
+.div4 .submit{
+    padding: 10px;
+    background-color: #a80f27;
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 640px;
+    left: 250px;
+    font-size: 13px;
+}

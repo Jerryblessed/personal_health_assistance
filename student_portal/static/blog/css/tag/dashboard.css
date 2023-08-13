@@ -1,0 +1,518 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background: white;
+}
+.major{
+    height: 2in;
+}
+.div1{
+    background: #fcd8aa;
+    width: 3in;
+    height: 7.22in;
+    top: 1px;
+    position: sticky;
+}
+nav{
+    display: flex;
+    align-items: center;
+    
+}
+.logo{
+    cursor: pointer;
+    height: 3in;
+    position: relative;
+    bottom: 1.3in;
+}
+nav ul li{
+    position: relative;
+    top: 2.3in;
+    right: 3in;
+    list-style-type: none;
+    display: grid;
+    font-size: 15px;
+}
+nav ul li p{
+    position: relative;
+    left: 50px;
+    bottom: 30px;
+    font-size: 20px;
+    color: white;
+}
+nav ul li i{
+    font-size: 15px;
+    color: white;
+    text-transform: capitalize;
+    position: relative;
+    bottom: 5px;
+}
+#a{
+    position: relative;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+    height: 10px;
+    position:relative;
+    width: 2.5in;
+}
+#b{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#b:hover{
+    position:relative;
+    width: 2.5in;
+}
+#c{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#c:hover{
+    position:relative;
+    width: 2.5in;
+}
+#d{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#d:hover{
+    position:relative;
+    width: 2.5in;
+}
+#e{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#e:hover{
+    position:relative;
+    width: 2.5in;
+}
+nav ul li a{
+    color:black;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+/* second div */
+.div2{
+    padding: 0;
+    /* border: 2px solid blue; */
+    position: relative;
+    bottom: 7.5in;
+}
+.per{
+    padding: 5px ;
+    border: 2px solid #a80f27;
+    position: relative;
+    width: 1in;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 12.5in;
+    bottom: 55px;
+    font-size: 20px;
+    text-decoration: none;
+}
+#wel{
+    position: relative;
+    left: 3.5in;
+    font-size: 30px;
+    top: 50px;
+    width: 5in;
+}
+#bit{
+    position: relative;
+    left: 11.5in;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(132, 134, 134);
+    bottom: 5px;
+    right: 10px;
+}
+#bell{
+    position: relative;
+    left: 11.2in;
+    font-size: 30px;
+    color: black;
+    bottom: 15px;
+}
+.dropdown li{
+    display: grid;
+    position: relative;  
+    justify-content:left;
+    padding-left:10px; 
+    padding-top: 25px;  
+    font-size: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    cursor:  pointer;
+}
+.dropdown li:hover{
+    background: #f0b363;
+    color: black;
+}
+.dropdown a:hover{
+    color: black;
+}
+.per a{
+    text-decoration: none;
+    color:#a80f27;
+}
+.dropdown a{
+    text-decoration: none;
+    color: white;
+}
+.per .dropdown{
+    background: #c77200;
+    position: absolute;
+    z-index: 999;
+    display:none;
+    right: 5px;
+    top:40px;
+    border-radius: 10px;
+    height: 1.7in;
+    width: 1.3in;
+    justify-content: space-evenly;
+}
+.per:hover ul.dropdown{
+    display: block;
+    color: black;
+}
+#sch{
+    font-size: 10px;
+}
+/* div 3 */
+.div3{
+    border: 2px solid black;
+    position: relative;
+    bottom: 7.2in;
+    width: 9.5in;
+    left: 3.5in;
+    border-radius: 10px;
+    padding: 15px;
+
+}
+.div3 ul{
+    display: flex ;
+    justify-content: space-evenly;
+    list-style: none;
+    text-align: center;
+}
+.div3 ul li{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.div3 ul p{
+    font-weight: bolder;
+}
+.div3 ul i{
+    font-size: 20px;
+    padding-top: 30px;
+    padding: 20px;
+    background: blue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.div3 .fa-download{
+    background: rgb(158, 158, 231);
+    color: rgb(79, 79, 172);
+}
+.div3 .fa-floppy-disk{
+    background:rgb(253, 210, 131);
+    color: rgb(250, 121, 0);
+}
+.div3 .fa-clipboard-list{
+    background: pink;
+    color: rgb(247, 7, 47);
+}
+.div3 .fa-eye{
+    background: rgb(47, 189, 255);
+    color: rgb(30, 142, 216);
+}
+/* div 4 */
+.div4{
+    border: 1px solid black;
+    padding: 10px;
+    position: relative;
+    bottom: 6.8in;
+    width: 6in;
+    left: 3.7in;
+    height: 3in;
+    border-radius: 10px;
+}
+.div4 .chart{
+    padding: 50px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    width:4in;
+    height: 1.4in;
+    position: relative;
+    left: 0.5in;
+    bottom: 2.2in;
+}
+.div4 p{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.div4 select{
+    position: relative;
+    background: none;
+    left: 5in;
+    bottom: 25px;
+}
+.div4 ul{
+    list-style: none;
+    position: relative;
+    bottom: 0.2in;
+    left: 10px;
+    width: 1in;
+}
+.chart ul{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 1in;
+    width: 5in;
+    right: 1in;
+    background: #f0b363;
+}
+.grade{
+    position: relative;
+    bottom: 1.5in;
+}
+.grade ul{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 2in;
+    top: -0.55in;
+    width: 5in;
+    right: 5in;
+    left: 50px;
+    font-size: 15px;
+}
+/* div5 */
+.div5{
+    border: 1px solid black;
+    position: relative;
+    border-radius: 10px;
+    width: 3.2in;
+    bottom: 10.03in;
+    left: 10.1in;
+    background: rgb(218, 209, 209);
+}
+.div5 .box{
+    padding: 10px;
+    background:#fcd8aa;
+    width: 2.23in;
+    height: 0.8in;
+    left: 35px;
+    top: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+.div5 .box p{
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 15px;
+}
+.div5 .box #task{
+    font-size: 12px;
+    font-weight: 100;
+}
+.div5 .box i{
+    position: relative;
+    font-size: 15px;
+    left: 1.2in;
+    bottom:22px ;
+}
+.div5 .eds{
+    position: relative;
+    margin-top:50px ;
+}
+.div5 .eds ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-align: center;
+    padding-left:20px;
+    padding-right: 20px;
+}
+.div5 .eds ul p{
+    font-size:12px;
+}
+.div5 .eds ul i{
+    font-size: 20px;
+    background: rgb(158, 158, 231);
+    color: rgb(79, 79, 172);
+    padding: 5px;
+    border-radius: 50%;
+}
+.div5 .eds ul li{
+    font-size: 20px;
+    font-weight: bolder;
+}
+#eds{
+    display: flex;
+    justify-content: space-between;
+    padding-left:40px;
+    padding-right: 40px;
+    position: relative;
+    bottom: 7px;
+}
+#edss{
+    color: green;
+}
+.sign{
+    justify-content: space-evenly;
+    display: flex;
+    font:25px; 
+    padding-top: 20px;
+    padding-bottom: 28px; 
+    width: 1in; 
+    position: relative;
+    left: 100px;
+}
+.sign .fa-circle{
+    font-size: 10px;
+    position: relative;
+    top: 2px;
+}
+.sign .fa-chevron-left{
+    font-size: 15px;
+}
+/* media query */
+  /* media query */
+  @media (max-width: 600px) {
+    .div1 {
+      width: 100%;
+      height: auto;
+      position: static;
+    }
+  
+    .logo {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    nav ul li {
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+  
+    nav ul li p {
+      left: 0;
+      bottom: 0;
+      font-size: 15px;
+    }
+  
+    .div2 {
+      bottom: 0;
+    }
+  
+    .per {
+      left: 0;
+      bottom: 0;
+      font-size: 15px;
+    }
+  
+    #wel {
+      left: 0;
+      text-align: center;
+      width: 100%;
+      top: 0;
+    }
+  
+    #bit {
+      left: 0;
+      right: auto;
+    }
+  
+    #bell {
+      left: 0;
+    }
+  
+    .dropdown {
+      right: 0;
+      top: auto;
+      bottom: 40px;
+      width: 100%;
+    }
+  
+    .dropdown li {
+      padding-left: 0;
+      padding-top: 10px;
+      font-size: 15px;
+    }
+  
+    .div3 {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  
+    .div4 {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  
+    .div5 {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  
+    .div5 .box {
+      left: 20px;
+      width: auto;
+    }
+  
+    .div5 .eds {
+      margin-top: 20px;
+    }
+  
+    .eds ul {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  
+    .eds ul i {
+      left: auto;
+      bottom: auto;
+    }
+  
+    .sign {
+      left: auto;
+    }
+  }
+  

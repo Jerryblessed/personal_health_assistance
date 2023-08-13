@@ -1,0 +1,483 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background: white;
+    height: 60vh;
+}
+.div1{
+    background: #fcd8aa;
+    width: 3in;
+    height: 7.22in;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    
+}
+.logo{
+    cursor: pointer;
+    height: 3in;
+    position: relative;
+    bottom: 1.7in;
+}
+.nav ul{
+    position: relative;
+    top: 2.3in;
+    right: 3in;
+}
+.nav ul li{
+    list-style-type: none;
+    display: grid;
+    font-size: 15px;
+}
+.nav ul li p{
+    position: relative;
+    left: 50px;
+    bottom: 30px;
+    font-size: 20px;
+    color: white;
+}
+.nav ul li i{
+    font-size: 15px;
+    color: white;
+    text-transform: capitalize;
+    position: relative;
+    bottom: 5px;
+}
+.nav ul li a{
+    color:black;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+#a{
+    position: relative;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+    height: 10px;
+}
+#a:hover{
+    position:relative;
+    width: 2.5in;
+}
+#b{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#b:hover{
+    position:relative;
+    width: 2.5in;
+}
+#c{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#c:hover{
+    position:relative;
+    width: 2.5in;
+}
+#d{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#d:hover{
+    position:relative;
+    width: 2.5in;
+}
+#e{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    position:relative;
+    width: 2.5in;
+}
+
+/* div 2 bar page */
+
+
+.div2{
+    padding: 0;
+    position: relative;
+    bottom: 7in;
+    height: fit-content;
+}
+.per{
+    padding: 5px ;
+    border: 2px solid #a80f27;
+    position: relative;
+    width: 1in;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 12.5in;
+    bottom: 55px;
+    font-size: 20px;
+    text-decoration: none;
+}
+#bit{
+    position: relative;
+    left: 11.5in;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(132, 134, 134);
+    bottom: 5px;
+    right: 10px;
+}
+#bell{
+    position: relative;
+    left: 11.2in;
+    font-size: 30px;
+    color: black;
+    bottom: 15px;
+}
+.dropdown li{
+    display: grid;
+    position: relative;  
+    justify-content:left;
+    padding-left:10px; 
+    padding-top: 25px;  
+    font-size: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    cursor:  pointer;
+}
+.dropdown li:hover{
+    background: #f0b363;
+    color: black;
+}
+.dropdown a:hover{
+    color: black;
+}
+.per a{
+    text-decoration: none;
+    color:#a80f27;
+}
+.dropdown a{
+    text-decoration: none;
+    color: white;
+}
+.per .dropdown{
+    background: #c77200;
+    position: absolute;
+    z-index: 999;
+    display:none;
+    right: 5px;
+    top:40px;
+    border-radius: 10px;
+    height: 1.7in;
+    width: 1.3in;
+    justify-content: space-evenly;
+}
+.per:hover ul.dropdown{
+    display: block;
+    color: black;
+}
+#sch{
+    font-size: 10px;
+}
+
+/* div3  chat page and box */
+
+
+.div3{
+    height: 70vh;
+    position: relative;
+    left: 3.3in;
+    bottom: 7.2in;
+    width: fit-content;
+    color: white;
+}
+.div3 .div{
+    background: rgb(216, 212, 212);
+    height: max-content;
+}
+.div3 .div ul{
+    background: gray;
+    width: 3in;
+    height: 5.7in;
+    overflow-y: scroll;
+}
+.div3 .div ul li{
+    list-style: none;
+    /* margin-left: 15px; */
+    height: 30px;
+    padding-bottom: 25px;
+    margin-bottom: 8px;
+}
+.div3 .div ul li:hover{
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+.div3 .div ul li a{
+    text-decoration: none;
+    color: white;
+}
+.div3 .div ul li img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+    left: 10px;
+    top: 10px;
+}
+.div3 .div ul input{
+    height: 30px;
+    width: 2.7in;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.div3 .div ul input::placeholder{
+    color: gainsboro;
+}
+.div3 .div ul li .time{
+    width: max-content;
+    position: relative;
+    left: 2.2in;
+    bottom: 50px;
+    font-size: 10px;
+}
+.div3 .div ul li .name{
+    position: relative;
+    bottom: 25px;
+    left: 50px;
+    font-size: 18px;
+    width: fit-content;
+}
+.div3 .div ul li .message{
+    position: relative;
+    bottom: 20px;
+    left: 50px;
+    font-size: 10px;
+    width: fit-content;
+}
+.chat{
+    font-size: 20px;
+    color: black;
+    margin-left: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+/*  chat box*/
+.div3 .container{
+    position: relative;
+    background:gainsboro;
+    width: 480px;
+    height: 71.8vh;
+    bottom: 5.2in;
+    left: 3in;
+    box-shadow: 2px 2px 20  px rgba(0, 0, 0, 0, 4);
+}
+.div3 .container .body{
+    flex: 1;
+    flex-direction: column;
+    height: 455px;
+    overflow-y: scroll;
+    color: black;
+    font-size: 10px;
+}
+.div3 .container .body .message{
+    padding: 10px;
+    background-color: #f8f0e5;
+    width: fit-content;
+    max-width: 2in;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    border-radius: 20px;
+}
+.div3 .container .body .User_message{
+    background-color: #f08f10;
+    padding: 10px;
+    /* align-items: center; */
+    width: fit-content;
+    max-width: 2in;
+    position: relative;
+margin-left: auto;
+    border-radius: 20px;
+}
+.div3 .container .footer{
+    background: #dddada;
+    height: 45px;
+}
+.div3 .container .footer form input{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    width: 3.3in;
+    margin-left: 10px;
+}
+.div3 .container .footer form .fa-comments{
+    color: black;
+    position: relative;
+    font-size: 20px;
+    margin-left: 3px;
+    top: 3px;
+}
+.div3 .container .footer .image-upload >input{
+    display: none;
+}
+.div3 .container .footer .image-upload .fa-camera{
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+    position: relative;
+    left: 4.1in;
+    bottom: 25px;
+}
+.div3 .container .footer form button{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: none;
+    background-color: gray;
+    position: relative;
+    left: 4.5in;
+    bottom: 55px;
+}
+
+/* chatbox display panel */
+
+.chatbox{
+    height: 50px;
+    position: relative;
+    bottom: 10.9in;
+    left: 3in;
+    width: 7.6in;
+    background: gray;
+}
+.imgg{
+   height: 40px;
+   width: 40px;
+   border-radius: 50%;
+   padding-left: 10px;
+}
+.chatbox sub{
+    position: relative;
+    right: 90px;
+    bottom: 5px;
+}
+.chatbox span{
+    position: relative;
+   bottom: 18px;
+   left: 10px;
+}
+.chatbox a i{
+    font-size: 23px;
+    position: relative;
+    left: 1.6in;
+    color: black;
+}
+.chatbox .fa-search{
+    font-size: 20px;
+    position: relative;
+    left: 1.6in;
+    color: black;
+    bottom: 7px;
+    background: #aaaaa9;
+    padding: 7px;
+    border-radius: 50%;
+}
+.chatbox .fa-ban{
+    font-size: 20px;
+    position: relative;
+    left: 2in;
+    color: red;
+    bottom: 7px;
+    background: #aaaaa9;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+/* user profile */
+
+.perr{
+    background-color: gray;
+    width: 2.6in;
+    height: 5.19in;
+    position: relative;
+    left: 5in;
+}
+.perr #profile{
+    position: relative;
+    bottom: 35px;
+}
+
+.perr li{
+    display: grid;
+    justify-content: space-between;
+    position: relative;     
+    font-size: 10px;
+    cursor:  pointer;
+    color: white;
+    height: max-content;
+    bottom: 30px;
+    margin-bottom: 5px;
+
+}
+.perr a{
+    text-decoration: none;
+}
+.perr .first{
+    position: relative;
+    left: 20px;
+    width: max-content;
+}
+.jpeg{
+    width: 50px;
+    height: 50px ;
+    border-radius: 50%;
+    position: relative;
+    top: 20px;
+}
+.perr li i{
+    font-size: 20px;
+    position: relative;
+    left: 20px;
+}
+.perr li:hover{
+    color: black
+}
+.perr li  sub{
+    font-size: 13px;
+    position: relative;
+    bottom: 20px;
+    width: fit-content;
+    left: 60px;
+}
+.perr li  span{
+    font-size: 15px;
+    position: relative;
+    width: fit-content;
+    left: 60px;
+    bottom: 23px;
+}
+.perr input{
+    position: relative;
+    left: 1.7in;
+    bottom:40px;
+}

@@ -1,0 +1,269 @@
+{% comment %} {% extends 'dashboard/dashboard_base.html' %} {% endcomment %}
+{% load static %}
+
+{% block title %}
+    
+{% endblock title %}
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestream</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'blog/css/tag/profile.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% endblock stylesheets %}
+</head>
+
+
+
+     {% comment %} {{ block.super }} {% endcomment %}
+        {% comment %} <link href="{% static 'dashboard/author/css/dashboard.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static 'blog/css/tag/profile.css'%}"> {% endcomment %}
+
+
+
+{% block content %}
+<body>
+<div class="div1" style="height:100vh ;
+width: 100% ;
+background-image: url('{{ author_profile_details.profile.banner_image.url }}');
+image-resolution: 50%;
+background-size: cover;
+background-repeat: no-repeat;
+height: 3in;" >
+    <nav>
+        <ul>
+            <li><a href="{% url 'index'%}"> <img src="{% static 'blog/images/tag/logo.png' %}" alt="" class="logo"></a></li>
+            <li> <a href= "{% url 'blog:author_profile_details' %}" > <img  src="{{ author_profile_details.profile.image.url }}" alt="" srcset="" id="bit" ></a></li>
+            <li>
+                <div class="per">
+                    <a href="#">
+                        <p>{{ user.username }} <i class="fa-solid fa-chevron-down"></i></p>
+                    </a>
+                    <ul class="dropdown">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="livestream.html" id="sch">Schedule Livestream</a></li>
+                        <li><a href="universities-pastquestions.html">Test Yourself</a></li>
+                        <li><a href="login.html">Logout!</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="box">
+    <div>
+        <h3>Livestreams</h3>
+        <p>Be a part of the student community and <br> join our live stream</p>
+        <a href="#">
+            <h2>Join a livestream</h2>
+        </a>
+        <h4>Not now</h4>
+    </div>
+    <div>
+        <img src="{% static 'blog/images/tag/profile.jpg'%}" alt="" srcset="" >
+    </div>
+</div>
+<div class="div2">
+    <img src="{{ author_profile_details.profile.image.url }}" alt="" srcset="" id="bitt">
+    <p id="name">{{ user.username }}</p>
+    <a href="{% url 'blog:author_profile_update' %}">
+        <p id="profile"><i class="fa-solid fa-pencil"></i> Edit Your Profile</p>
+    </a>
+</div>
+<ul class="ul">
+    <li id="first"><a href="{% url 'blog:author_profile_details' %}">Livestream</a></li>
+    <li><a href="{% url 'savedpq'%}">saved PQ's</a></li>
+    <li><a href="feedback.html">Feed Back</a></li>
+</ul>
+</body>
+     {% comment %} <div class="container mb-5">
+        <div class="row shadow-sm">
+            <div class="col-md-12 col-sm-12 col-xs-12 image-section">
+                <img alt="author-banner-image" src="{{ author_profile_details.profile.banner_image.url }}">
+            </div>
+            <div class="row user-left-part">
+                <div class="col-md-3 col-sm-3 col-xs-12 user-profil-part pull-left">
+                    <div class="row ">
+                        <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
+                            <img alt="author-profile-image" src="{{ author_profile_details.profile.image.url }}" class="rounded-circle border border-dark shadow-sm">
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 user-detail-section1 text-center">
+                            <a href="{% url 'blog:author_profile_update' %}" class="btn btn-success btn-block follow">
+                                <i class="fas fa-edit fa-sm fa-fw"></i>
+                                Update Profile</a>
+                            <!--<button class="btn btn-warning btn-block">Descargar Curriculum</button>-->
+                        </div>
+                        <div class="row user-detail-row">
+                            <div class="col-md-12 col-sm-12 user-detail-section2 pull-left">
+                                <div class="border"></div>
+                                <p class="text-dark">SOCIAL MEDIA</p>
+                                <span>
+                                    <a href="{{ author_profile_details.profile.facebook_url }}"><i class="fab fa-facebook"></i></a>
+                                    <a href="{{ author_profile_details.profile.twitter_url }}"><i class="fab fa-twitter"></i></a>
+                                    <a href="{{ author_profile_details.profile.instagram_url }}"><i class="fab fa-instagram"></i></a>
+                                    <a href="{{ author_profile_details.profile.github_url }}"><i class="fab fa-github"></i></a>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9 col-xs-12 pull-right profile-right-section">
+                    <div class="row profile-right-section-row">
+                        <div class="col-md-12 profile-header">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6 col-xs-6 profile-header-section1 pull-left">
+                                    {% if author_profile_details.first_name and author_profile_details.last_name %}
+                                    <h1>{{ author_profile_details.first_name }} {{ author_profile_details.last_name }}</h1>
+                                    {% else %}
+                                    <h1>{{ author_profile_details.username }}</h1>
+                                    {% endif %}
+
+                                    {% if  author_profile_details.profile.job_title %}
+                                    <h5>{{ author_profile_details.profile.job_title }}</h5>
+                                    {% else %}
+                                    <h5>No Profession/Job Title</h5>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-rigth">
+                                    <a href="{% url 'blog:home' %}" target="_blank" class="btn btn-primary btn-block">
+                                        <i class="fas fa-paper-plane fa-sm text-white-50"></i> Visit Website</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                                <li class="nav-item">
+                                                  <a class="nav-link active mb-1" href="#profile" role="tab" data-toggle="tab"><i class="fas fa-user-circle"></i> Profile</a>
+                                                </li>
+                                                <li class="nav-item disabled">
+                                                  <a class="nav-link mb-1" href="#buzz" role="tab" data-toggle="tab"><i class="fas fa-info-circle"></i> Profile Details</a>
+                                                </li>
+                                              </ul>
+
+                                              <!-- Tab panes -->
+                                              <div class="tab-content">
+                                                <div role="tabpanel" class="tab-pane fade show active" id="profile">
+                                                        <div class="row mt-1">
+                                                                <div class="col-md-3">
+                                                                    <label class="font-italic text-dark">First Name</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <p>{{ author_profile_details.first_name }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="font-italic text-dark">Last Name</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <p>{{ author_profile_details.last_name }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="font-italic text-dark">Email</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    <p>{{ author_profile_details.email }}</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="font-italic text-dark">Location</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    {% if author_profile_details.profile.city and author_profile_details.profile.country %}
+                                                                    <p>{{ author_profile_details.profile.city }},
+                                                                        {{ author_profile_details.profile.country }}</p>
+                                                                    {% else %}
+                                                                    <p></p>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label class="font-italic text-dark">Account Status</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    {% if author_profile_details.is_active %}
+                                                                    <p class="text-success">Active</p>
+                                                                    {% else %}
+                                                                    <p class="text-danger">Deactivated (Contact Admin to activate your Account)</p>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                </div>
+                                                <div role="tabpanel" class="tab-pane fade" id="buzz">
+                                                        <div class="row mt-1">
+                                                                <div class="col-md-4">
+                                                                    <label class="font-italic text-dark">Profession</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <p>{{ author_profile_details.profile.job_title }}</p>
+                                                                </div>
+                                                            <div class="col-md-4">
+                                                                    <label class="font-italic text-dark">Biography</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <p>{{ author_profile_details.profile.bio }}</p>
+                                                                </div>
+                                                            </div>
+                                                           <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label class="font-italic text-dark">Address</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    {% if author_profile_details.profile.address and author_profile_details.profile.city and author_profile_details.profile.country %}
+                                                                    <p>{{ author_profile_details.profile.address }}, {{ author_profile_details.profile.city }},
+                                                                        {{ author_profile_details.profile.country }}</p>
+                                                                    {% else %}
+                                                                    <p></p>
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <label class="font-italic text-dark">Date Joined</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <p>{{ author_profile_details.date_joined.date }}</p>
+                                                                </div>
+                                                            </div>
+                                                </div>
+
+                                              </div>
+
+                                </div>
+                                <div class="col-md-4 align-top">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row image-right-part">
+                                                <div class="col-md-6 pull-left image-right-detail">
+                                                    <h6 class="text-danger">LAST LOGIN</h6>
+                                                    <p><span class="font-weight-bold">Date:</span> {{ author_profile_details.last_login.date }}</p>
+                                                    <p><span class="font-weight-bold">Time:</span> {{ author_profile_details.last_login.time }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div> {% endcomment %}
+
+{% endblock content %}

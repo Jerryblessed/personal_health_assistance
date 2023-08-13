@@ -1,0 +1,120 @@
+{% comment %} {% extends 'account/account_base.html' %} {% endcomment %}
+{% load static %}
+
+{% comment %} {% block title %}
+    Login
+{% endblock title %}
+
+{% block content %}
+
+
+
+				<span class="login100-form-title p-b-41">
+					Login
+				</span>
+				<form action="{% url 'blog:login' %}" class="login100-form validate-form p-b-33 p-t-5"
+                      method="post" novalidate>
+                    {% csrf_token %}
+
+					<div class="wrap-input100 validate-input" data-validate="Enter username">
+						{{ login_form.username }}
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						{{ login_form.password }}
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button type="submit" class="login100-form-btn">
+							Login
+						</button>
+                    </div>
+                    <hr />
+                    <div class="text-center">
+                      <a class="small text-info" href="{'password_reset.html'}">
+                          Forgot Password?</a>
+                    </div>
+                    <div class="text-center">
+                      <a class="small text-primary" href="{% url 'blog:register' %}"
+                        >Create an Account!</a>
+                    </div>
+                    <hr />
+                    <div class="text-center">
+                      <a class="small text-info" href="{% url 'blog:home' %}">
+                          Home
+                      </a>
+                    </div>
+				</form>
+
+{% endblock content %}
+ {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TESLAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'blog/css/tag/login.css'%}">
+</head>
+
+{% block content %}
+
+<body>
+    <div class="log">
+        <div class="logpic" style= " background-image: url('{% static "blog/images/tag/login2.jpg" %}');
+        background-size: cover;
+        width:8in;
+        height: 130vh;
+        align-items: center;
+        filter:brightness(70%); " >
+            <div class="shape">
+                <i class="fa-solid fa-quote-left"></i>
+                Education is the most powerful weapon which you can use to create the world
+                <i class="fa-solid fa-quote-right"></i>
+                <p>Nelson Mandela</p>
+            </div>
+        </div>
+        <div class="login">
+            <div class="logo">
+                <a href="{% url 'blog:home' %}"> <img src="{% static 'blog/images/tag/logo.png'%}" alt=""></a>
+            </div>
+            <p id="log">Log in</p>
+            <div class="enter">
+                <p id="your">Enter your credentials to access your account</p>
+                <a href="dashbord.html"> <button id="withs"><i class="fa-brands fa-google"></i> Log in with
+                        google</button></a>
+                <a href="dashbord.html"> <button id="with"><i class="fa-brands fa-microsoft"></i> Log in with
+                        Microsoft</button></a>
+                <p id="or">---------------or---------------</p>
+                <form action="{% url 'blog:login' %}" class="login100-form validate-form p-b-33 p-t-5"
+                method="post" novalidate>
+              {% csrf_token %}
+                <p id="mail">Email Address</p>
+                {{ login_form.username }}
+                <p id="pass">Password</p>
+                {{ login_form.password }}
+                    <p id="forget">Forget Password?</p>
+                </a>
+                <p id="check"><input type="checkbox" name="checkbox" id="checkbox"> keep me signed in</p>
+                <a href="dashbord.html"> <button id="in" type="submit">Log in </button></a>
+              </form>
+              </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+{% endblock content %}

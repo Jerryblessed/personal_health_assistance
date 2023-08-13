@@ -1,0 +1,260 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background: white;
+}
+.maj{
+    height:max-content;
+}
+.div1{
+    background: #fcd8aa;
+    width: 3in;
+    height: 7.22in;
+    position: sticky;
+    z-index: 1;
+    top: 1px;
+}
+nav{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    cursor: pointer;
+    height: 3in;
+    position: relative;
+    bottom: 1.3in;
+}
+nav ul li{
+    position: relative;
+    top: 2.3in;
+    right: 3in;
+    list-style-type: none;
+    display: grid;
+    font-size: 15px;
+}
+nav ul li i{
+    font-size: 15px;
+    color: white;
+    text-transform: capitalize;
+}
+#a{
+    position: relative;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+    height: 10px;
+}
+#a:hover{
+    position:relative;
+    width: 2.5in;
+}
+#b{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#b:hover{
+    position:relative;
+    width: 2.5in;
+}
+#c{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#c:hover{
+    position:relative;
+    width: 2.5in;
+}
+#d{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+    position:relative;
+    width: 2.5in;
+}
+#e{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#e:hover{
+    position:relative;
+    width: 2.5in;
+}
+nav ul li a{
+    color:black;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+nav ul li p{
+    position: relative;
+    left: 50px;
+    bottom: 30px;
+    font-size: 20px;
+    color: white;
+}
+nav ul li i{
+    font-size: 15px;
+    color: white;
+    text-transform: capitalize;
+    position: relative;
+    bottom: 5px;
+}
+/* div 2 */
+.div2{
+    padding: 0;
+    /* border: 2px solid blue; */
+    position: relative;
+    bottom: 7.5in;
+}
+.per{
+    padding: 5px ;
+    border: 2px solid #a80f27;
+    position: relative;
+    width: 1in;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 12.5in;
+    bottom: 55px;
+    font-size: 20px;
+    text-decoration: none;
+}
+#wel{
+    position: relative;
+    left: 3.5in;
+    font-size: 30px;
+    top: 50px;
+    width: 5in;
+}
+#bit{
+    position: relative;
+    left: 11.5in;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(132, 134, 134);
+    bottom: 5px;
+    right: 10px;
+}
+#bell{
+    position: relative;
+    left: 11.2in;
+    font-size: 30px;
+    color: black;
+    bottom: 15px;
+}
+.dropdown li{
+    display: grid;
+    position: relative;  
+    justify-content:left;
+    padding-left:10px; 
+    padding-top: 25px;  
+    font-size: 9px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+.dropdown li:hover{
+    background: #f0b363;
+    color: black;
+}
+.dropdown a:hover{
+    color: black;
+}
+.per a{
+    text-decoration: none;
+    color:#a80f27;
+}
+.dropdown a{
+    text-decoration: none;
+    color: white;
+}
+.per .dropdown{
+    background: #c77200;
+    position: absolute;
+    z-index: 999;
+    display:none;
+    right: 5px;
+    top:40px;
+    border-radius: 10px;
+    height: 1.7in;
+    width: 1.3in;
+    justify-content: space-evenly;
+}
+.per:hover ul.dropdown{
+    display: block;
+    color: black;
+}
+#sch{
+    font-size: 10px;
+}
+/* div3 */
+.div3{
+    position: relative;
+    margin-top: 30px;
+    left: 300px;
+    width: 10in;
+    bottom: 8in;
+}
+.div3 ul{
+    display: grid;
+    justify-content: space-between;
+}
+.div3 ul li{
+    position: relative;
+    /* top: 30px; */
+    padding: 10px;
+    list-style: none;
+    display: grid;
+    width: 10.5in;
+    margin-top: 20px;
+    background: #fcd8aa;
+    color: black;
+}
+.div3 ul li .fa-circle{
+    font-size: 20px;
+    color: #a80f27;
+    position: relative;
+}
+.div3 ul li h1{
+    font-size: 25px;
+    font-weight: bolder;
+    position: relative;
+    left: 100px;
+    bottom: 20px;  
+    width: 200px; 
+}
+.div3 ul li #days{
+    font-size: 20px;
+    position: relative;
+    left: 9.5in;
+    bottom: 60px;
+    width: 100px;  
+}
+.div3 ul li #notification{
+    font-size: 13px;
+    position: relative;
+    left: 100px;
+    width: 8in;
+}

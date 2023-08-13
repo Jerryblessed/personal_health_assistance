@@ -1,0 +1,212 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background: gainsboro;
+    height: 10.5in;
+}
+/* .major{
+    height: 1in;
+} */
+.div1{
+    height:100vh ;
+    background: linear-gradient(45deg ,rgb(253, 73, 73), rgb(184, 151, 151));
+    image-resolution: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 2in;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    cursor: pointer;
+    height: 3in;
+    position: relative;
+    bottom: 1in;
+    right: 50px;
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.per{
+    padding: 5px ;
+    border: 2px solid #910e0e;
+    position: relative;
+    width: 1in;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 7.5in;
+    bottom: 250px;
+    font-size: 20px;
+    text-decoration: none;
+}
+.per button{
+    color: #910e0e;
+}
+#bit{
+    position: relative;
+    left: 7in;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(132, 134, 134);
+    bottom: 230px;
+    right: 10px;
+}
+.dropdown li{
+    display: grid;
+    position: relative;  
+    justify-content:left;
+    padding-left:10px; 
+    padding-top: 20px;  
+    font-size: 9px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+.dropdown li:hover{
+    background: #f0b363;
+    color: black;
+}
+.dropdown a:hover{
+    color: black;
+}
+.per a{
+    text-decoration: none;
+    color:white;
+}
+.dropdown a{
+    text-decoration: none;
+    color: white;
+}
+.per .dropdown{
+    background: #c77200;
+    position: absolute;
+    z-index: 999;
+    display:none;
+    right: 5px;
+    top:40px;
+    border-radius: 10px;
+    height: 1.9in;
+    width: 1.4in;
+    justify-content: space-evenly;
+}
+.per:hover ul.dropdown{
+    display: block;
+    color: black;
+    border-radius: 10px;
+}
+#sch{
+    font-size: 10px;
+}
+/* body */
+.pic{
+    width: 11in;
+    position: relative;
+    left: 2in;
+}
+.pic ul{
+    display: flex;
+    justify-content: space-between;
+}
+.pic ul li{
+    list-style: none;
+}
+.pic ul li img{
+    border-radius: 50%; 
+    border: 2px solid white;
+    position: relative;
+    bottom: 70px;
+    right: 30px;
+}
+.pic ul #save{
+    display: flex;
+    justify-content: space-between;
+    width: 3in;
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+    
+}
+.pic ul #save p{
+    border: 1px solid black;
+    width: 1in;
+    height: 30px;margin-left: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: white;
+}
+.pic ul #save a{
+    text-decoration: none;
+}
+.pic ul #save #sss{
+    background: #910e0e;
+    color: white;
+}
+.pro{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 10in;
+    align-items: center;
+    left: 2.2in;
+    bottom: 100px;
+}
+.pro div{
+    margin-top: 50px;
+}
+.pro div input{
+    margin-bottom: 30px;
+    width: 4in;
+    height: 20px;
+    border:1px solid black ;
+    box-shadow: 1px 1px 1px 1px black;
+}
+.pro div p{
+    font-weight: 200;
+}
+.pro div i{
+    position: relative;
+    right: 4in;
+}
+.image-upload{
+    height: 2in;
+    width: 6in;
+    border: 1px solid black;
+    position: relative;
+    left: 4in;
+    position: relative;
+    bottom: 50px;
+}
+#image{
+    width: 1in;
+    height: 1in;
+    border-radius: 50%;
+    position: relative;
+    top: 50px;
+    left: 40px;
+}
+.p{
+    border:  1px solid black;
+    cursor: pointer;
+    position: relative;
+    left: 2.3in;
+    width: 3in;
+    bottom: 50px;
+    text-align: center;
+    height: 1in;
+    align-items: center;
+}

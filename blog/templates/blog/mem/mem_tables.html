@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlphaSemester100Level</title>
+    <link rel="stylesheet" href="{% static 'blog/css/tag/courses.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="major">
+        <div class="div1">
+            <nav>
+                <img src="{% static 'blog/images/tag/logo.png'%}" alt="" class="logo">
+                <ul>
+                    <li><a href="dashbord.html" id="a"><i class="fa-solid fa-table-columns"> </i>
+                            <p>Dashboard</p>
+                        </a></li>
+                    <li><a href="universities-pastquestions.html" id="b"><i class="fa-solid fa-book-open-reader"></i>
+                            <p> Past Questions</p>
+                        </a></li>
+                    <li><a href="notepage.html" id="c"><i class="fa-solid fa-book"></i>
+                            <p> Notes</p>
+                        </a></li>
+                    <li><a href="livestream.html" id="c"><i class="fa fa-podcast" aria-hidden="true"></i>
+                            <p>Livestream</p>
+                        </a></li>
+                    <li><a href="notification.html" id="d"><i class="fa-solid fa-bell"></i>
+                            <p>Notification</p>
+                        </a></li>
+                    <li><a href="chat.html" id="e"><i class="fa-solid fa-comments"> </i>
+                            <p>Chat</p>
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="div2">
+            <!-- <a href="notification.html"><i class="fa-solid fa-bell" id="bell"></i></a> -->
+            <a href="profile.html"> <img src="bitmoji.jpeg" alt="" srcset="" id="bit"></a>
+            <div class="per">
+                <a href="#">
+                    <p>Percy <i class="fa-solid fa-chevron-down"></i></p>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="livestream.html" id="sch">Schedule Livestream</a></li>
+                    <li><a href="universities-pastquestions.html">Test Yourself</a></li>
+                    <li><a href="login.html">Logout!</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="div3">
+        <!-- <div class="links">
+            <a href="undergraduates-studies.html">
+                <h2>Undergraduate Studies ></h2>
+            </a>
+            <a href="uwcpage.html">
+                <h2>UWC > </h2>
+            </a>
+            <h2>Level > </h2>
+            <a href="omegaSemester.html">
+                <h2>Omega Semester > </h2>
+            </a>
+            <h2><b>Courses </b></h2>
+        </div> -->
+        {% block content %}
+ 
+        <div class="">
+         <span></span>
+        </div>
+        <div class="">
+            <span></span>
+           </div>
+           
+        <div class = "row">
+            <div class="div4">
+                {% if tables %}   
+                <div class="div4"> 
+                <ul>
+                    {% for table in tables  %}
+                    <li>
+                       
+                        
+                        <a class="slider-category" href="{{ table.get_absolute_url }}">
+                        <div class="category-image">
+                            <div class="display-table-cell">
+                                <h2>{{ table.title }}</h2>
+                                <p>uploaded 27/04/2021</p>
+                                <span><span>
+                            <i class="fa-solid fa-table-columns"> </i>
+                            </div>  
+                            <img src="{{ table.image.url }}"
+                            class="category-image"
+                            alt="">
+                        </div>
+                        </a>
+                        
+                    </li>
+                    {% endfor %}
+            
+               
+                
+                </ul>
+                {% else %}
+                <center><div class="alert alert-info">No Categories</div></center>
+            </div>
+                {% endif %}
+        </div>
+        </div>
+            
+            {% if is_paginated %}
+            
+                            {# Displays previous pages #}
+                            {% if page_obj.has_previous %}
+                                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                                <a class="btn btn-outline-info mb-4"
+                                   href="?page={{ page_obj.previous_page_number }}">Previous
+                                </a>
+                            {% endif %}
+            
+                            {# Displays current page #}
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                                {% endif %}
+                             {% endfor %}
+            
+                            {# Displays next pages #}
+                           {% if page_obj.has_next %}
+                                <a class="btn btn-outline-info mb-4"
+                                   href="?page={{ page_obj.next_page_number }}">Next
+                                </a>
+                                <a class="btn btn-outline-info mb-4"
+                                   href="?page={{ page_obj.paginator.num_pages }}">Last
+                                </a>
+                            {% endif %}
+            
+                        {% endif %}
+            
+                    </div><!-- container -->
+                </section><!-- section -->
+        
+        {% endblock content %}
+    </div>
+</body>
+
+</html>

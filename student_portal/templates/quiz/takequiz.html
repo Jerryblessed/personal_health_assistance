@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readtime view</title>
+    <link rel="stylesheet" href="{% static 'blog/css/tag/submit.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <img src="{% static 'img/tag/logo.png'%}" alt="" class="logo">
+    <div class="div4">
+        <div class="col s4">
+            <h5>Time limit:</h5>
+            <p>{{ quiz.time_limit_mins }}</p>
+        </div>
+        <div class="circle">
+            <p id="timer"></p>
+        </div>
+        <h3>Question Answered</h3>
+        <table>
+            <tr>
+                {% for question in quiz.questions.all %}
+                <td style="border-radius: 20%;">
+                    <button class="question-btn {% if question.is_answered %}answered{% endif %}"
+                            data-index="{{ forloop.counter0 }}">{{ forloop.counter }}</button>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+        <button id="submit-btn" class="submit" style="display: none;">Submit</button>
+    </div>
+    <div class="div2">
+        <a href="profile.html"> <img src="{{ user.profile.image.url }}" alt="" srcset="" id="bit"></a>
+        <div class="per">
+            <a href="#">
+                <p>{{ user.username }} <i class="fa-solid fa-chevron-down"></i></p>
+            </a>
+            <ul class="dropdown">
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="livestream.html" id="sch">Schedule Livestream</a></li>
+                <li><a href="universities-pastquestions.html">Test Yourself</a></li>
+                <li><a href="login.html">Logout!</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="div3">
+        <p style="padding: 10px;border: 1px solid black; width: 500px; text-align: center; border-radius: 10px; position: relative; bottom: 400px; font-weight: bold;">
+            {{ quiz.title }}</p>
+        <div class="questions">
+            <h3 id="current-question-number" style="color: #d98518;"></h3> <!-- Added h3 element to display current question number -->
+
+            <form id="quiz-form" method="post" action="{% url 'submit-quiz' course_id module_id quiz.id %}" role="form"
+                  class="col s12">
+                {% csrf_token %}
+                {% for question in quiz.questions.all %}
+                    <div class="col s12 question" data-index="{{ forloop.counter0 }}"
+                         {% if forloop.counter0 != 0 %}style="display: none;"{% endif %}>
+                        <br>
+                        <p style="margin-bottom: 30px;position: relative;left: 30px;bottom: 15px;">
+                            {{ question.question_text }}</p>
+                        <input type="hidden" name="question" value="{{ question.id }}">
+                        {% for answer in question.answers.all %}
+                            <div class="input col s12">
+                                <label>
+                                    <input name="answer" type="checkbox" value="{{ answer.id }}" />
+                                    <span>{{ answer.answer_text }}</span>
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+                <div class="options">
+                    <button id="prev-btn" type="button" class="btn waves-effect waves-light">
+                        <i class="fa-solid fa-arrow-left"></i> Previous
+                    </button>
+                    <button id="next-btn" type="button" class="btn waves-effect waves-light">
+                        <i class="fa-solid fa-arrow-right"></i> Next
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const timerElement = document.getElementById('timer');
+            const questionButtons = document.querySelectorAll('.question-btn');
+            const prevButton = document.getElementById('prev-btn');
+            const nextButton = document.getElementById('next-btn');
+            const submitButton = document.getElementById('submit-btn');
+            const form = document.getElementById('quiz-form');
+            const questions = document.querySelectorAll('.question');
+            const questionCount = questions.length;
+            let currentQuestionIndex = 0;
+
+            // Set initial question and button states
+            showQuestion(currentQuestionIndex);
+            updateButtonStates();
+
+            // Attach event listeners
+            prevButton.addEventListener('click', goToPreviousQuestion);
+            nextButton.addEventListener('click', goToNextQuestion);
+            submitButton.addEventListener('click', function () {
+                document.getElementById('quiz-form').submit();
+            });
+
+            // Add event listeners to question buttons
+            questionButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    showQuestion(index);
+                    currentQuestionIndex = index;
+                    updateButtonStates();
+                });
+            });
+
+            // Countdown Timer
+            const timeLimit = parseInt("{{ quiz.time_limit_mins }}");
+            const endTime = new Date();
+            endTime.setMinutes(endTime.getMinutes() + timeLimit);
+            startTimer(endTime, timerElement);
+
+            function startTimer(endTime, timerElement) {
+                const intervalId = setInterval(() => {
+                    const remainingTime = Math.max(0, Math.floor((endTime - new Date()) / 1000));
+                    const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
+                    const seconds = (remainingTime % 60).toString().padStart(2, '0');
+                    timerElement.textContent = minutes + ':' + seconds;
+
+                    if (remainingTime <= 0) {
+                        clearInterval(intervalId);
+                        submitQuiz();
+                    }
+                }, 1000);
+            }
+
+            function goToPreviousQuestion() {
+                currentQuestionIndex--;
+                showQuestion(currentQuestionIndex);
+                updateButtonStates();
+            }
+
+            function goToNextQuestion() {
+                currentQuestionIndex++;
+                showQuestion(currentQuestionIndex);
+                updateButtonStates();
+            }
+
+            function showQuestion(index) {
+                questions.forEach((question, i) => {
+                    if (i === index) {
+                        question.style.display = 'block';
+                    } else {
+                        question.style.display = 'none';
+                    }
+                });
+                document.getElementById('current-question-number').textContent = 'Question ' + (index + 1);
+            }
+
+            function updateButtonStates() {
+                prevButton.disabled = (currentQuestionIndex === 0);
+                nextButton.disabled = (currentQuestionIndex === questionCount - 1);
+                submitButton.style.display = (currentQuestionIndex === questionCount - 1) ? 'block' : 'none';
+                questionButtons.forEach((button, index) => {
+                    button.classList.remove('active');
+                    if (index <= currentQuestionIndex) {
+                        button.classList.add('answered');
+                    }
+                    if (index === currentQuestionIndex) {
+                        button.classList.add('active');
+                    }
+                });
+            }
+
+            function submitQuiz() {
+                form.submit();
+            }
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+{% load static %}
+
+{% block content %}
+<div class="section">
+    <h4>{{ quiz.title }}</h4>
+    <div class="divider"></div>
+</div>
+
+<div class="row">
+    <div class="col s4">
+        <h5>Due:</h5>
+        <p>{{ quiz.due }}</p>
+    </div>
+
+    <div class="col s4">
+        <h5>Allowed Attempts:</h5>
+        <p>{{ quiz.allowed_attempts }}</p>
+    </div>
+
+    <div class="col s4">
+        <h5>Time limit:</h5>
+        <p>{{ quiz.time_limit_mins }}</p>
+    </div>
+
+    <div class="col s12">
+        {{ quiz.description | safe }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
+        <div class="question-dashboard">
+            {% for question in quiz.questions.all %}
+                <button class="question-btn" data-index="{{ forloop.counter0 }}">{{ forloop.counter }}</button>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
+        <form id="quiz-form" method="post" action="{% url 'submit-quiz' course_id module_id quiz.id %}" role="form" class="col s12">
+            {% csrf_token %}
+            {% for question in quiz.questions.all %}
+                <div class="col s12 question" data-index="{{ forloop.counter0 }}">
+                    <br>
+                    <p>{{ question.question_text }}</p>
+                    <input type="hidden" name="question" value="{{ question.id }}">
+                    {% for answer in question.answers.all %}
+                        <div class="input col s12">
+                            <label>
+                                <input name="answer" type="checkbox" value="{{ answer.id }}" />
+                                <span>{{ answer.answer_text }}</span>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="col s12">
+                <button id="prev-btn" type="button" class="btn waves-effect waves-light">
+                    Previous
+                </button>
+                <button id="next-btn" type="button" class="btn waves-effect waves-light">
+                    Next
+                </button>
+                <button id="submit-btn" type="button" class="btn waves-effect waves-light">
+                    Submit
+                </button>
+            </div>
+            <div class="col s12">
+                <div id="timer" class="timer"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+<script>
+var questionElements = document.querySelectorAll('.question');
+var questionButtons = document.querySelectorAll('.question-btn');
+var prevButton = document.getElementById('prev-btn');
+var nextButton = document.getElementById('next-btn');
+var submitButton = document.getElementById('submit-btn');
+var timerElement = document.getElementById('timer');
+var currentPage = 0;
+var timeLimit = {{ quiz.time_limit_mins }} * 60; // Convert minutes to seconds
+var timerInterval;
+
+showQuestion(currentPage);
+startTimer(timeLimit);
+
+prevButton.addEventListener('click', function() {
+  if (currentPage > 0) {
+    currentPage--;
+    showQuestion(currentPage);
+  }
+});
+
+nextButton.addEventListener('click', function() {
+  if (currentPage < questionElements.length - 1) {
+    currentPage++;
+    showQuestion(currentPage);
+  }
+});
+
+submitButton.addEventListener('click', function() {
+  document.getElementById('quiz-form').submit();
+});
+
+questionButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    var index = parseInt(button.dataset.index);
+    currentPage = index;
+    showQuestion(currentPage);
+  });
+});
+
+function showQuestion(index) {
+  for (var i = 0; i < questionElements.length; i++) {
+    questionElements[i].style.display = 'none';
+  }
+  questionElements[index].style.display = 'block';
+
+  if (index === 0) {
+    prevButton.style.display = 'none';
+  } else {
+    prevButton.style.display = 'inline-block';
+  }
+
+  if (index === questionElements.length - 1) {
+    nextButton.style.display = 'none';
+    submitButton.style.display = 'inline-block';
+  } else {
+    nextButton.style.display = 'inline-block';
+    submitButton.style.display = 'none';
+  }
+}
+
+function startTimer(duration) {
+  var timer = duration;
+  var minutes, seconds;
+
+  timerInterval = setInterval(function() {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    timerElement.textContent = minutes + ':' + seconds;
+
+    if (--timer < 0) {
+      clearInterval(timerInterval);
+      timerElement.textContent = 'Time is up!';
+      submitButton.click(); // Automatically submit the quiz
+    }
+  }, 1000);
+}
+</script>
+ {% endcomment %}

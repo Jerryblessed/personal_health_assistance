@@ -1,0 +1,163 @@
+{% extends 'temp/snipest/base.html' %}
+{% load static %}
+
+{% block css %}
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  {% block csss %}
+  {% endblock csss %}
+{% endblock css %}
+
+{% block contentbase %}
+   {% comment %} <nav class="light-blue" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="{% url 'indexshow' %}" class="brand-logo">Home</a>
+      <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">cloud</i>Student Portal</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">person</i>Profile</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons left">person</i>Profile</a></li>
+      </ul>
+    </div>
+  </nav> 
+
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <div class="background">
+          {% if nav_profile.banner %}
+            <img src="{{ nav_profile.banner.url }}">
+          {% else %}
+            <img src="{% static 'img/nobanner.jpg' %}">
+          {% endif %}
+        </div>
+        <a href="#user">
+          {% if nav_profile.picture %}
+            <img src="{{ nav_profile.picture.url }}" class="circle responsive-img">
+          {% else %}
+            <img src="{% static 'img/no_avatar.jpg' %}" class="circle responsive-img">
+          {% endif %} 
+        </a>
+        <a href="#name"><span class="white-text name">{{ nav_profile.user.first_name }} {{ nav_profile.user.last_name }}</span></a>
+        <a href="#email"><span class="white-text email">{{ nav_profile.user.email }}</span></a>
+      </div>
+    </li>
+    <li><a href="{% url 'profile' nav_profile.user.username %}"><i class="material-icons">person</i>My profile</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Learninng</a></li>
+    <!-- <li><a href="{ 'categories' }"><i class="material-icons">menu_book</i>Courses</a></li> -->
+    <li><a href=""><i class="material-icons">circle_notifications</i>Notifications</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Teaching</a></li>
+    <li><a href="{% url 'my-courses' %}"><i class="material-icons">menu_book</i>Your courses</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="{% url 'logout' %}"><i class="material-icons">power_off</i>Log out</a></li>
+  </ul> {% endcomment %}
+
+  {% block banner %}
+  {% endblock %}
+
+  {% comment %} <div class="container">
+    <div class="section"> {% endcomment %}
+      {% block content %}
+      {% endblock %}
+    {% comment %} </div>
+  </div> {% endcomment %}
+
+  <br> <!-- Add the necessary number of <br> tags -->
+{% endblock contentbase %}
+
+{% block js %}
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+  {% block javascript %}
+  {% endblock %}
+{% endblock js %} 
+
+{% comment %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'blog/css/tag/dashboard.css' %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    {% if title %}
+        <title>TESLAS - {{title}}</title>
+    {% else %}
+        <title>TESLAS</title>
+    {% endif %}
+
+
+    </head>
+
+<body>
+    {% if user.is_authenticated %}
+    <div class="major">
+        <div class="div1">
+            <nav>
+                <img src="{% static 'blog/images/tag/logo.png' %}" alt="" class="logo">
+                <ul>
+                    <li><a href="dashbord.html" id="a"><i class="fa-solid fa-table-columns"> </i>
+                            <p>Dashboard</p>
+                        </a></li>
+                    <li><a href="{%url 'blog:categories_list'%}"id="b"><i class="fa-solid fa-book-open-reader"></i>
+                            <p> Past Questions</p>
+                        </a></li>
+                    <li><a href="notepage.html" id="b"><i class="fa-solid fa-book"></i>
+                            <p> Notes</p>
+                        </a></li>
+                    <li><a href="livestream.html" id="c"><i class="fa fa-podcast" aria-hidden="true"></i>
+                            <p>Livestream</p>
+                        </a></li>
+                    <li><a href="notification.html" id="d"><i class="fa-solid fa-bell"></i>
+                            <p>Notification</p>
+                        </a></li>
+                    <li><a href="/chat/{{friend.username}}" id="e"><i class="fa-solid fa-comments"> </i>
+                            <p>Chat</p>
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="div2">
+            <p id="wel">Welcome {{ user.username }}!</p>
+            <a href="notification.html"><i class="fa-solid fa-bell" id="bell"></i></a>
+            <a href="profile.html"> <img src="bitmoji.jpeg" alt="" srcset="" id="bit"></a>
+            <div class="per">
+                <a href="#">
+                    <p>Percy <i class="fa-solid fa-chevron-down"></i></p>
+                </a>
+               <ul class="dropdown">
+                    <li><a href="{% url 'blog:author_profile_details' %} ">Profile</a></li>
+                    <li><a href="{% url  'blog:author_profile_update' %}" id="sch">Schedule Livestream</a></li>
+                    <li><a href="universities-pastquestions.html">Test Yourself</a></li>
+                    <li><a href="{% url 'blog:logout' %} ">Logout!</a></li>
+                </ul>
+            </div>
+        </div>
+        {% block content%}
+        {% endblock%}
+    </div>
+    {% endif %}
+</body>
+
+</html>  
+ {% endcomment %}

@@ -1,0 +1,380 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background:white;
+}
+.div1{
+    background-image:url(div1.jpg) ;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 2.5in;
+    /* filter: brightness(70%); */
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 8%;
+    padding-right:8%;
+}
+.logo{
+    cursor: pointer;
+    height: 4in;
+    position: relative;
+    right:100px ;
+    bottom:100px ;
+}
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    padding-bottom: 300px;
+}
+nav ul li a{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.div1 p{
+    text-align: center;
+    font-size:40px;
+    position: relative;
+    bottom:200px ;
+    font-weight: bold;
+    color: #c77200 ;
+    filter: brightness(100%), contrast(100%);
+}
+#contact{
+    padding: 5px;
+    background:#a80f27;
+    color: white;
+    border-radius: 5px;
+}
+#contact:hover{
+    color: black;
+}
+.div2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right:5%;
+    position: relative;
+    height: 700px;
+    /* background: purple; */
+}
+.div2 .your h1{
+    position: relative;
+    top:-0.5in;
+}
+.div2 .your p{
+    position: relative;
+    font-size: 18px;
+    margin-bottom: 1in;
+}
+#who{
+    font-size: 50px;
+    font-weight: bolder;
+    position: relative;
+    left: 10px;
+    background-color:white;
+    top: -320px;
+    color: #c77200;
+    width: 200px;
+}
+#who2{
+    padding: 70px;
+    border:5px solid black ;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    rotate: -30deg;
+    border-radius: 30px;
+    margin-top:150px;
+    left: 100px;
+}
+.image{
+    position: relative;
+    bottom: 700px;
+    left: 30px;
+    display: flex;
+}
+#pic1{
+    max-width: 200px;
+    height: 200px;
+    position: relative;
+    top: 450px;
+    background: transparent;
+}
+#pic2{
+    max-width: 250px;
+    height: 200px;
+    position: relative;
+    top: 530px;
+    background: transparent;
+    margin-left: 20px;
+}
+#pic3{
+    max-width: 200px;
+    height: 200px;
+    position: relative;
+    top: 270px;
+    right: 90px;
+
+}
+.div3{
+    position: relative;
+    height: 700px;
+    /* background: blueviolet; */
+}
+.div3 p{
+    font-size: 40px;
+    position: relative;
+    margin-left: 2in;
+    font-weight: bolder;
+}
+span{
+    color: blueviolet;
+}
+.what2{
+    padding: 30px;
+    border:5px solid black ;
+    position: relative;
+    height: 3.5in;
+    width: 3.5in;
+    rotate: -50deg;
+    border-radius: 30px;
+    margin-left: 150px;
+    margin-top: 0.7in;
+    
+}
+.what4{
+    position: relative;
+    margin-left: 6in;
+    width: 3in;
+    bottom: 10in; 
+    left: 5in;
+}
+#what4{
+    position: relative;
+    margin-bottom: 3in;
+    font-size: 30px;
+    right:5in;
+    top: 3in;
+    width: 5in;
+    font-weight: bolder;
+    color: #c77200;
+}
+
+#pic4{
+    position: relative;
+    height: 4in;
+    width: 4in;
+    top: -4.2in;
+    left: 1.6in;
+}
+.div3 a{
+    position: relative;
+    right: 1in;
+} 
+.div3 a button{
+    width: 3in;
+    padding: 15px;
+    color: white;
+    background: #a80f27;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1.8in;
+}
+.div3 a button:hover{
+    color: black;
+}
+.div4{
+    position: relative;
+    /* background-color: dodgerblue; */
+    height: 4.5in;
+}
+.div4 p{
+    font-size: 25px;
+    /* background: black; */
+    width: 3in;
+    position: relative;
+    left: 1in;
+    font-weight: bolder;
+}
+.div4 nav{
+    position: relative;
+    /* background: blue; */
+    width: 4.5in;
+    left: 9in;
+    padding: 20px;
+}
+.div4 nav ul li{
+    list-style-type: none;
+    display:inline-flex;
+    justify-content: space-between;
+}
+.fa-paper-plane{
+    position: relative;
+    left: 20px;
+    width: 50px;
+    height: 1in;
+}
+.fa-twitter{
+    position: relative;
+    left: 40px;
+}
+.fa-linkedin-in{
+    position: relative;
+    left: 1in;
+}
+.fa-instagram{
+    position: relative;
+    left: 1.5in;
+}
+.contact{
+    position: relative;
+    bottom: 4in;
+    list-style: none;
+    height: 4in;
+}
+#us{
+    font-size: 50px;
+    font-weight: bolder;
+    border-bottom: 2px solid black;
+}
+#phone{
+    position: relative;
+    top: 10px;
+    padding-left: 1in;
+    font-weight: bolder;
+}
+#phone p{
+    font-size: 20px;
+    position: relative;
+    margin-left: -1in;
+    width: 5in;
+}
+.text{
+    display: grid;
+    position: relative;
+    width: 5in;
+    left: 8in;
+    bottom: 1.7in;
+    justify-content: space-between;
+}
+#name{
+    width:5in;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+#email{
+    width:5in;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+#message{
+    width:5in;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+.text a button{
+    width:3in;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 2.2in;
+    color: white;
+    font-size: 20px;
+    background: #a80f27;
+    cursor: pointer;
+}
+.text a button:hover{
+    background: transparent;
+    padding: 10px;
+    border-radius: 5px solid black;
+    color: black;
+}
+.div5{
+    background: grey;
+    position: relative;
+    height: 4.4in;
+}
+.div5 img{
+    cursor: pointer;
+    height: 3in;
+    position: relative;
+    bottom: 0.5in;
+   
+}
+.home {
+    list-style-type: none;
+    display: flex;
+    font-size: 15px;
+    /* background: darkorange; */
+    position: relative;
+    bottom: 1.5in;
+    height: 1in;
+    border-bottom: 1px solid white;
+    width: 8in;
+    left: 1in;
+    
+    
+}
+.home li a{
+    color:black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+    height: -50px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    right: 1.1in;
+}
+.home div{
+    position: relative;
+    left: 3in;
+    color: white;
+}
+.home div #email{
+    width: 3in;
+    border: none;
+}
+.home div button{
+    width: 1in;
+    padding: 9px;
+    background: #a80f27;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.terms li{
+    list-style: none;
+    position: relative;
+    bottom: 1in;
+    justify-content: space-evenly;
+    right: 15px;
+    
+}
+.terms li a{
+    text-decoration: none;
+    color: white;
+}
+.terms p{
+    position: relative;
+    bottom: 1in;
+    color: white;
+}
+/* media query */

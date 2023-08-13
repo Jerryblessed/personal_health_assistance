@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.log{
+    display: flex;
+    height: 4in;
+}
+.logpic{
+    background: url(login2.jpg);
+    background-size: cover;
+    width:8in;
+    height: 130vh;
+    align-items: center;
+    filter:brightness(70%);
+}
+.shape{
+    
+    align-items: center;
+    position: relative;
+    max-width: 230px;
+    padding: 50px;
+    background: rgb(248, 248, 248, .9);
+    top: 3.5in;
+    left: 1.5in;
+    border-radius: 30px;
+}
+.shape p{
+    font-weight: bold;
+    position: relative;
+    left: 1in;
+}
+.logo img{
+    width: 3in;
+    position: relative;
+    bottom: 70px;
+    left: 2in;
+    /* background: palegoldenrod; */
+}
+.login{
+   text-align: center;
+}
+#log{
+    text-align: left;
+    font-size: 40px;
+    font-weight: bolder;
+    position: relative;
+    bottom: 1.7in;
+    left: 1.5in;
+    width: 5in;
+}
+.enter{
+    /* background-color: dodgerblue; */
+    position: relative;
+    bottom: 1in;
+}
+#your{
+    font-size: 15px;
+    position: relative;
+    margin-bottom: 30px;
+    right: 23px;
+    font-weight: bold;
+}
+#with{
+    position: relative;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px gray;
+    cursor: pointer;
+}
+#with:hover{
+    background: #c77200;
+    color: white;
+}
+#withs{
+    box-shadow: 5px 5px 5px gray;
+    cursor: pointer;
+}
+#withs:hover{
+    background: #c77200;
+    color: white;
+}
+.enter a{
+    text-decoration: none;
+}
+.enter a button{
+    width: 4in;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 5px solid black;
+    font-size: 15px;
+    font-weight: bolder;  
+    border: none;  
+}
+#or{
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-top: 15px;
+}
+#mail{
+    font-size: 20px;
+    position:relative;
+    right: 1.3in;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#pass{
+    font-size: 20px;
+    position:relative;
+    right: 1.5in;
+    top: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#checkbox{
+    width: 10px;
+}
+#check{
+    position: relative;
+    right: 1.2in;
+    top: 10px;
+    margin-bottom: 30px;
+}
+.enter input{
+    padding: 10px;
+    width:  3.7in;
+}
+#forget{
+    margin-top: 20px;
+    position: relative;
+    font-weight: bold;
+    color: #a80f27;
+    left: 4in;
+    width: 1.5in;
+    
+}
+#forget:hover{
+    color: black;
+}
+#in{
+    background: #a80f27;
+    color: white;
+    cursor: pointer;
+}
+/* media query */

@@ -1,0 +1,365 @@
+{% load static%}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{% static 'blog/css/tag/chat1.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- div 1  quick acsess tool bar -->
+    <div class="div1">
+        <nav class="nav">
+            <img src="{% static 'img/tag/logo2.png' %}" alt="" class="logo">
+            <ul>
+                <li><a href="{% url 'index' %}" id="a"><i class="fa-solid fa-table-columns"> </i>
+                    <p>Dashboard</p>
+                </a></li>
+            <li><a href="{%url 'blog:categories_list'%}" id="b"><i class="fa-solid fa-book-open-reader"></i>
+                    <p> Branch</p>
+                </a></li>
+            {% comment %} <li><a href="{% url 'blog:author_profile_details' %}" id="c"><i class="fa-solid fa-book"></i>
+                    <p> Notes</p>
+                </a></li>
+            <li><a href="{% url 'blog:author_profile_details' %}" id="c"><i class="fa fa-podcast" aria-hidden="true"></i>
+                    <p>Livestream</p>
+                </a></li>
+            <li><a href="notification.html" id="d"><i class="fa-solid fa-bell"></i>
+                    <p>Notification</p>
+                </a></li> {% endcomment %}
+            <li><a href="{% url 'inbox' %}" id="e"><i class="fa-solid fa-comments"> </i>
+                    <p>Chat</p>
+                </a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- div 2 bar page -->
+    <div class="div2">
+
+        <a href="notification.html"><i class="fa-solid fa-bell" id="bell"></i></a>
+        <a href="profile.html"> <img src="{{ message.user.profile.picture.url }}" alt="" srcset="" id="bit"></a>
+        <div class="per">
+            <a href="#">
+                <p>{{user.username}} <i class="fa-solid fa-chevron-down"></i></p>
+            </a>
+            <ul class="dropdown">
+                <li><a href="{% url 'blog:author_profile_details' %} ">Profile</a></li>
+                <li><a href="{% url  'blog:author_profile_update' %}" id="sch">Schedule Livestream</a></li>
+                <li><a href="universities-pastquestions.html">Test Yourself</a></li>
+                <li><a href="{% url 'logout' %}">Logout!</a></li>
+       </ul>
+        </div>
+    </div>
+    <!-- div 3 chat page and boxes -->
+    <div class="div3">
+
+        <div class="div">
+            <ul>
+                <input type="search" name="search" id="search" placeholder="search">
+                {% for message in messages %}
+                <li>
+                    
+       
+                    <a href="{% url 'directs' message.user.username %}">
+                        {% if message.user.profile.picture %}
+                        <img src="{{ message.user.profile.picture.url }}" alt="">
+                        {% else %}
+                        <img src="{% static 'img/no_avatar.jpg' %}" alt="">
+                        {% endif %}
+                        <p class="name">{{ message.user.username }}</p>
+                        <p class="message">{{ message.unread }}</p>
+                        <p class="time">{{ direct.date | naturaltime }}</p>
+                    </a>
+                    
+                </li>
+                {% endfor %}
+        </div>
+        <!-- chatbox-main -->
+        <div class="container">
+            <div class="body">
+                <div class="center-align">
+                    {% if directs.has_next %}
+                        <a id="loadmorebtn" class="waves-effect waves-light btn-small"><i class="material-icons left">add</i>Load more</a>
+                        <input id="page_number" type="hidden" value="{{ directs.next_page_number }}">
+                    {% endif %}
+                    </div>
+                {% for direct in directs reversed %}
+                <p class="message"> {{ direct.body }}</p>
+                <p class="right-align">{{ direct.date | naturaltime }}</p>
+                {% comment %} <p class="User_message"> Hi</p>
+                <p class="message"> How are you</p>
+                <p class="User_message"> Am doing great</p>
+                <p class="message"> Where you at rn been a while we saw</p>
+                <p class="User_message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae magnam, facilis
+                    ex, dolor non animi esse iste ipsum, quasi deserunt voluptatum exercitationem optio magni quidem?
+                    Vel explicabo voluptates quo dolores.
+                    rem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, dicta ab! Cupiditate a, delectus rem
+                    et illo fugiat architecto consequatur ut tempora voluptas, quibusdam labore tempore, sint doloremque
+                    commodi suscipit?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ad dolorem fugit repellat
+                    necessitatibus praesentium iste veritatis ipsum magni corporis. Ullam ducimus ipsam reprehenderit
+                    aliquam praesentium!</p>
+                <p class="message">.</p>
+                {% endcomment %}
+
+                {% endfor %}   
+            </div>
+            <div class="footer">
+                <form id="senddirectform" method="POST" action="{% url 'send-direct' %}" >
+                    {% csrf_token %}
+
+                    <input type="hidden" name="to_user" value="{{ active_direct }}">
+                   
+                    <input type="text" id="text" name="body" placeholder="Type your message...">
+                    <!-- <button id="media"><input type="file" name="" id=""></button> -->
+                    <i class="fa-solid fa-comments"></i>
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <input type="file" name="" id="file-input">
+                    </div>
+                    <button type="submit" name="action" ><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <!-- profile -->
+        <div class="chatbox">
+            <img src="bitmoji.jpeg" class="imgg">
+            <span>Ajayi Peters</span>
+            <sub>last seen recently</sub>
+            <a href="#"><i class="fa-solid fa-search"></i></a>
+            <a href="#"><i class="fa-solid fa-ban" placeholder="block user"></i></a>
+            <div class="perr">
+                <a href="#"><i class="fa-solid fa-user" id="profile"></i></a>
+                <ul>
+                    <li class="first">
+                        <img src="bitmoji.jpeg" class="jpeg">
+                        <span class="nav-item">Ajayi Peters</span>
+                        <sub class="sub1">Last seen Recently</sub>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span class="nav-item">+234 901 5419 3430</span>
+                        <sub class="sub2">Mobile</sub>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-address-card"></i>
+                        <span class="nav-item"> God's vessel of idolation</span>
+                        <sub class="sub3">Bio</sub>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-signature"></i>
+                        <span class="nav-item"> @the_idolator</span>
+                        <sub class="sub4">Username</sub>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="nav-item">Notification</span>
+                        <input type="radio" name="" id="">
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-images"></i>
+                        <span class="nav-item">Pictures</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-video"></i>
+                        <span class="nav-item">Videos</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-file"></i>
+                        <span class="nav-item">Files</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-link"></i>
+                        <span class="nav-item"> Shared Links</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% block javascript %}
+<script type="text/javascript">
+    // This is for the AJAX request in loadmore.js script. So we can send post request.
+    // Because csrf_token is neccesary for ajax requests.
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+</script>
+
+<script src="{% static 'js/loadmore.js' %}"></script>
+{% endblock %}
+
+{% comment %} {% load static%}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{% static 'blog/css/tag/chat1.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <!-- Template Stylesheet -->
+{#        <link href="{% static 'student/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+{#        <link href="{% static 'student/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>#}
+<link href="{% static '' %}temp/css/style.css" rel="stylesheet">
+        
+<!-- CSS -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    </head>
+
+<body>
+    <!-- div 1  quick acsess tool bar -->
+    <div class="div1">
+        <nav class="nav">
+            <img src="{% static 'blog/images/tag/logo.png' %}" alt="" class="logo">
+            <ul>
+                <li><a href="dashbord.html" id="a"><i class="fa-solid fa-table-columns"> </i>
+                        <p>Dashboard</p>
+                    </a></li>
+                <li><a href="universities-pastquestions.html" id="b"><i class="fa-solid fa-book-open-reader"></i>
+                        <p> Past Questions</p>
+                    </a></li>
+                <li><a href="notepage.html" id="c"><i class="fa-solid fa-book"></i>
+                        <p> Notes</p>
+                    </a></li>
+                <li><a href="livestream.html" id="c"><i class="fa fa-podcast" aria-hidden="true"></i>
+                        <p>Livestream</p>
+                    </a></li>
+                <li><a href="notification.html" id="d"><i class="fa-solid fa-bell"></i>
+                        <p>Notification</p>
+                    </a></li>
+                <li><a href="chat.html" id="e"><i class="fa-solid fa-comments"> </i>
+                        <p>Chat</p>
+                    </a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- div 2 bar page -->
+    <div class="div2">
+
+        <a href="notification.html"><i class="fa-solid fa-bell" id="bell"></i></a>
+        <a href="profile.html"> <img src="bitmoji.jpeg" alt="" srcset="" id="bit"></a>
+        <div class="per">
+            <a href="#">
+                <p>Percy <i class="fa-solid fa-chevron-down"></i></p>
+            </a>
+            <ul class="dropdown">
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="livestream.html" id="sch">Schedule Livestream</a></li>
+                <li><a href="universities-pastquestions.html">Test Yourself</a></li>
+                <li><a href="login.html">Logout!</a></li>
+            </ul>
+        </div>
+    </div>
+
+    {% block content %}
+    
+    <div class="row">
+    <div class="col s12 m4">
+    <ul class="collection with-header">
+        <li class="collection-header">
+            <h5>Active chats</h5>
+        </li>
+        {% for message in messages %}
+        <a style="color: gray;" href="{% url 'directs' message.user.username %}">
+            <li class="collection-item avatar {% if active_direct == message.user.username %}active{% endif %}">
+            {% if message.user.profile.picture %}
+                <img src="{{ message.user.profile.picture.url }}" class="circle responsive-img">
+            {% else %}
+                <img src="{% static 'img/no_avatar.jpg' %}" class="circle responsive-img">
+            {% endif %}
+                <span class="title">{{ message.user.first_name }} {{ message.user.last_name }}</span>
+                <p><b>@{{ message.user.username }}</b></p>
+                <span class="new badge">{{ message.unread }}</span>
+        </li>
+        </a>
+        {% endfor %}
+    </ul>
+    
+    </div>
+    
+    <div style="overflow-y: scroll;" class="col s12 m8">
+        <div style="max-width: 600px;" class="card">
+            <div class="card-content">
+    
+                <div class="center-align">
+                {% if directs.has_next %}
+                    <a id="loadmorebtn" class="waves-effect waves-light btn-small"><i class="material-icons left">add</i>Load more</a>
+                    <input id="page_number" type="hidden" value="{{ directs.next_page_number }}">
+                {% endif %}
+                </div>
+    
+                <ol id="oldirects" style="list-style-type: none; display: flex; flex-direction: column-reverse;" class="collection">
+                {% for direct in directs %}
+                    <li style="border-bottom: 0px;" class="collection-item avatar">
+                        {% if direct.sender.profile.picture %}
+                            <img src="{{ direct.sender.profile.picture.url }}" class="circle responsive-img">
+                        {% else %}
+                            <img src="{% static 'img/no_avatar.jpg' %}" class="circle responsive-img">
+                        {% endif %}
+                        <span class="title"><b>{{ direct.sender.first_name }} {{ direct.sender.last_name }}</b></span>
+                        <p>{{ direct.body }}</p>
+                        <p class="right-align">{{ direct.date | naturaltime }}</p>
+                    </li>  
+                {% endfor %}              
+                </ol>
+            </div>
+        </div>
+    
+        <div class="card-action">
+            <div class="row">
+                <form id="senddirectform" method="POST" action="{% url 'send-direct' %}">
+                    {% csrf_token %}
+                    <div class="input-field col s9">
+                        <input type="hidden" name="to_user" value="{{ active_direct }}">
+                        <input id="text" name="body" type="text" class="validate">
+                        <label for="text">Type your message</label>
+                      </div>
+                      <div class="input-field col s9">
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Send
+                        <i class="material-icons right">send</i>
+                      </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    </div>
+    
+    </div>
+    {% endblock %}
+    
+</body>
+
+
+{% block javascript %}
+<script type="text/javascript">
+    // This is for the AJAX request in loadmore.js script. So we can send post request.
+    // Because csrf_token is neccesary for ajax requests.
+    window.CSRF_TOKEN = "{{ csrf_token }}";
+</script>
+
+<script src="{% static 'js/loadmore.js' %}"></script>
+{% endblock %} {% endcomment %}

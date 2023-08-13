@@ -1,0 +1,367 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.maj{
+    background: white;
+    height:70vh;
+}
+/*   */
+.div1{
+    background: #fcd8aa;
+    width: 3in;
+    height: 7.22in;
+    /* position: sticky;
+    z-index: 1;
+    top: 1px; */
+}
+nav{
+    display: flex;
+    align-items: center;
+}
+.logo{
+    cursor: pointer;
+    height: 3in;
+    position: relative;
+    bottom: 1.3in;
+}
+nav ul li{
+    position: relative;
+    top: 2.3in;
+    right: 3in;
+    list-style-type: none;
+    display: grid;
+    font-size: 15px;
+}
+nav ul li i{
+    font-size: 15px;
+    color: white;
+    text-transform: capitalize;
+}
+#a{
+    position: relative;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+    height: 10px;
+}
+#a:hover{
+    position:relative;
+    width: 2.5in;
+}
+#b{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#b:hover{
+    position:relative;
+    width: 2.5in;
+}
+#c{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+    position:relative;
+    width: 2.5in;
+}
+#d{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#d:hover{
+    position:relative;
+    width: 2.5in;
+}
+#e{
+    position: relative;
+    height: 10px;
+    margin-top: 30px;
+    bottom: 70px;
+    background: #a80f27;
+    padding: 20px;
+    width: 2.58in;
+}
+#e:hover{
+    position:relative;
+    width: 2.5in;
+}
+nav ul li a{
+    color:black;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+nav ul li p{
+    position: relative;
+    left: 50px;
+    bottom: 30px;
+    font-size: 20px;
+    color: white;
+}
+nav ul li i{
+    font-size: 15px;
+    color: white;
+    text-transform: capitalize;
+    position: relative;
+    bottom: 5px;
+}
+/* div 2 */
+.div2{
+    padding: 0;
+    /* border: 2px solid blue; */
+    position: relative;
+    bottom: 7.4in;
+}
+.per{
+    padding: 5px ;
+    border: 2px solid #a80f27;
+    position: relative;
+    width: 1in;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 12.5in;
+    bottom: 55px;
+    font-size: 20px;
+    text-decoration: none;
+}
+#wel{
+    position: relative;
+    left: 3.5in;
+    font-size: 20px;
+    top: 50px;
+    width: 2in;
+    padding: 10px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 20px;
+}
+#bit{
+    position: relative;
+    left: 11.5in;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: rgb(132, 134, 134);
+    bottom: 5px;
+    right: 10px;
+}
+#bell{
+    position: relative;
+    left: 11.2in;
+    font-size: 30px;
+    color: black;
+    bottom: 15px;
+}
+.dropdown li{
+    display: grid;
+    position: relative;  
+    justify-content:left;
+    padding-left:10px; 
+    padding-top: 25px;  
+    font-size: 9px;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+.dropdown li:hover{
+    background: #f0b363;
+    color: black;
+}
+.dropdown a:hover{
+    color: black;
+}
+.per a{
+    text-decoration: none;
+    color:#a80f27;
+}
+.dropdown a{
+    text-decoration: none;
+    color: white;
+}
+.per .dropdown{
+    background: #c77200;
+    position: absolute;
+    z-index: 999;
+    display:none;
+    right: 5px;
+    top:40px;
+    border-radius: 10px;
+    height: 1.7in;
+    width: 1.3in;
+    justify-content: space-evenly;
+}
+.per:hover ul.dropdown{
+    display: block;
+    color: black;
+}
+#sch{
+    font-size: 10px;
+}
+/* div3 */
+.div3{
+    background: #fcd8aa;
+    position: relative;
+    bottom: 7.5in;
+    width: 10in;
+    /* height: ; */
+    left: 3.6in;
+    height: 1.5in;
+    border-radius: 20px;
+}
+.div3 p img{
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 10px;
+    right: 10px;
+}
+.div3 p{
+    position: relative;
+    left: 1in;
+    bottom: 35px;
+    padding-bottom: 5px;
+    width: 3in;
+    font-size: 15px;
+}
+.div3 ul{
+    display: flex;
+    position: relative;
+    left: 6.7in;
+    justify-content: space-between;
+    width: 3in;
+    bottom: 10px;
+}
+.div3 #li{
+    list-style: none;
+    padding: 10px;
+    background: #f0b363;
+    border-radius: 20px;
+    width: 40px;
+    text-align: center;
+    position: relative;
+    left: 20px;
+    top: 40px;
+}
+.div3 ul li{
+    list-style: none;
+    padding: 20px;
+    background: #f0b363;
+    border-radius: 20px;
+}
+.div3 ul i{
+    font-size: 35px;
+    color: black;
+    position: relative;
+    top: 15px;
+}
+.info{
+    position:absolute;
+    left: 50px;
+}
+.info .fa-circle{
+    font-size: 7px;
+    text-align: center;
+    position: relative;
+    bottom: 2px;
+}
+/* div4 */
+
+.div4{
+    display: flex;
+    position: relative;
+    left: 3.6in;
+    bottom: 7in;
+    width: 10in;
+    justify-content: space-between;
+}
+.div4  ul {
+    display: grid;
+    justify-content: space-around;
+    height: 10vh;
+}
+.div4  ul li {
+    list-style: none;
+    background: rgb(253, 250, 250);
+    width: 4in;
+    position: relative;
+    height:60px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+.div4  ul li img{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: relative;
+    left: 2.9in;
+    bottom: 25px;
+}
+.div4 .up{
+    font-weight: bolder;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #c77200;
+    padding-left: 30px;
+}
+.div4 ul li .baba{
+    position: absolute;
+    left: 3.2in;
+    bottom: 25px;
+    font-size: 10px;
+    width: 70px;
+}
+.div4 ul li .gec{
+    position: relative;
+    font-weight: bolder;
+    font-size: 20px;
+    left: 10px;
+    top:10px;
+}
+.div4 ul li .date{
+    padding-left: 10px;
+    font-size: 15px;
+    position: absolute;
+    top:35px;
+} 
+.div4 ul li img{
+    position: absolute;
+    top: 20px;
+}
+.saved {
+    margin-bottom: 2px;
+    background: #fcd8aa;
+    width: 4.7in;
+    border-radius: 20px;
+    height: 3.8in;
+    overflow-y: scroll;
+}
+.divv{
+    background: #fcd8aa;
+    width: 4.7in;
+    border-radius: 20px;
+    height:3.8;
+    overflow-y: scroll;
+}
+.div4 .fa-circle{
+    font-size: 7px;
+    text-align: center;
+    position: relative;
+    bottom: 2px;
+}

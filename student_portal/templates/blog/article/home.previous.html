@@ -1,0 +1,97 @@
+{% extends 'blog/base_laundry.html' %}
+{%load static%}
+
+{% block content %}
+    <!-- banner section -->
+    
+        
+            
+            <img src="{% static 'blog/images/tag/div1.jpg' %}" class="div1">
+                
+               <div class="div1">
+                        <p>Welcome to TAG!</p>
+                </div>
+            
+    <!-- //banner section -->
+
+    <!-- banner bottom section -->
+    <section class="w3l-bottom-grids-6 py-5">
+        <div class="div2">
+            <div class="your">
+                <h1>Your favorite PQ hub!</h1>
+                <p>We're glad to serve in the best way we can.<br>
+                    Your success is our joy, and we'll bring it to you at the <br>
+                    tap of a button. 
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Quam repellendus nisi nobis, quod aliquid sapiente odit doloremque esse! <br>
+                    Voluptatibus delectus id corrupti atque rerum eveniet deleniti sit tempora amet modi? <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                    Doloribus nihil quis cupiditate atque porro placeat laudantium earum <br> 
+                    consequatur possimus accusamus, ex tempore unde culpa quibusdam distinctio <br>
+                    non illo expedita harum? <br>
+                </p>
+            </div>
+            <div class="who">
+                <div id="who2"></div>
+                <p id="who">Who<br>are we</p>
+                <div class="image">
+                    <img src="{% static 'blog/images/tag/who1.jpg'%}" alt="" id="pic1">
+                    <img src="{% static 'blog/images/tag/who2.jpg'%}" alt="" id="pic2">
+                    <img src="{% static 'blog/images/tag/who3.jpg'%}" alt="" id="pic3">
+                </div>
+            </div>
+        </div>
+        <div class="div3">
+            <p><span>What</span><br>we do</p>
+            <div class="what2"></div>
+            <img src="{% static 'blog/images/tag/laptop.jpg'%}" alt="" id="pic4">
+            <div class="what4">
+                <p id="what4">We bring to you the latest <br>
+                    news and PQ's across <br>
+                    various department <br>
+                    in your school.</p>
+                <a href="{% url 'blog:login' %}"><button>Access Your PQ</button></a>
+            </div>
+        </div>
+        <div class="div4">
+            <a name="Contact">
+                <p>Talk To Us Now!</p>
+                <nav>
+                    <ul>
+                        <li><i class="fa-solid fa-paper-plane"></i></li>
+                        <li><i class="fa-brands fa-twitter"></i></li>
+                        <li><i class="fa-brands fa-linkedin-in"></i></li>
+                        <li><i class="fa-brands fa-instagram"></i></li> 
+                    </ul>
+                </nav>
+                <div class="contact">
+                    <p id="us">Contact us</p>
+                    <div id="phone">
+                        <li><i class="fa-solid fa-phone">  Phone:</i></li>
+                        <p>+234 8130 986 046 | +234 8105 234 940</p>
+                        <br>
+                        <br>
+                        <li><i class="fa-solid fa-envelope">  Email:</i></li>
+                        <p>tag.teslas@gmail.com</p>
+                    </div>
+                    <div class="text">
+                        <input type="text" name="email" id="name" placeholder="Name">
+                        <input type="email" name="email" id="email" placeholder="Email">
+                        <input type="text" id="message" placeholder="Message">
+                        <a href="#"> <button>Submit</button></a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="div5">
+            <img src="{% static 'blog/images/tag/logo.png' %}" alt="" srcset="">
+           
+        </div>
+    </section>
+    <!-- //banner bottom section -->
+
+    <!-- about section -->
+    
+       
+    <!-- //call section -->
+{% endblock content %}
